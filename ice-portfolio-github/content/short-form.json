@@ -1,0 +1,93 @@
+{
+  "heading": "Vertical edits built for the first three seconds.",
+  "intro": "Reels, TikTok and Shorts with tight pacing, clean captions and sound design that keeps people watching.",
+  "categories": [
+    {
+      "label": "Talking head",
+      "items": [
+        {
+          "image": "https://static.wixstatic.com/media/32970e_5e97bc77f5f34641bc36fc52b0efae78f003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+          "videoUrl": ""
+        },
+        {
+          "image": "https://static.wixstatic.com/media/32970e_d8d27b37a4f341c089de47731d99e9e8f003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+          "videoUrl": ""
+        },
+        {
+          "image": "https://static.wixstatic.com/media/32970e_377b7c42fef340d09ffe3d2e7ca5fd14f003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+          "videoUrl": ""
+        },
+        {
+          "image": "https://static.wixstatic.com/media/32970e_2229cf03921c447ba817a13450b48aa6f003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+          "videoUrl": ""
+        },
+        {
+          "image": "https://static.wixstatic.com/media/32970e_6be1cf17a3be455ca6bee15901dfeb2df003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+          "videoUrl": ""
+        },
+        {
+          "image": "https://static.wixstatic.com/media/32970e_e2a59b0731ee47d791c12ceeb756b2dff003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+          "videoUrl": ""
+        }
+      ]
+    },
+    {
+      "label": "Travel & review",
+      "items": [
+        {
+          "image": "https://static.wixstatic.com/media/32970e_c9041ba0e82a429988a6b26021b4a98af003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+          "videoUrl": ""
+        },
+        {
+          "image": "https://static.wixstatic.com/media/32970e_f54d26291e7f41d49a2dcfa3ad7bb729f003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+          "videoUrl": ""
+        },
+        {
+          "image": "https://static.wixstatic.com/media/32970e_2d3d262f592143dab687aa39cd2f9c25f003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+          "videoUrl": ""
+        },
+        {
+          "image": "https://static.wixstatic.com/media/32970e_a3df30fa04e740c88023277a42636347f003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+          "videoUrl": ""
+        },
+        {
+          "image": "https://static.wixstatic.com/media/32970e_8f27081981e649bd907695fb80e611cdf003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+          "videoUrl": ""
+        },
+        {
+          "image": "https://static.wixstatic.com/media/32970e_afbee51380fe4ae2974f720d766e7df9f003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+          "videoUrl": ""
+        }
+      ]
+    },
+    {
+      "label": "Gaming & esports",
+      "items": [
+        {
+          "image": "https://static.wixstatic.com/media/32970e_2c6af63eddc24a03965ed739b7c253caf003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+          "videoUrl": ""
+        },
+        {
+          "image": "https://static.wixstatic.com/media/32970e_52871096ba014bfda6a832ac5ce76f3af003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+          "videoUrl": ""
+        },
+        {
+          "image": "https://static.wixstatic.com/media/32970e_180b11dbb3914f21a208a07727c6707ff003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+          "videoUrl": ""
+        },
+        {
+          "image": "https://static.wixstatic.com/media/32970e_d000a528a2694381a62831d5a2014a36f003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+          "videoUrl": ""
+        },
+        {
+          "image": "https://static.wixstatic.com/media/32970e_28e50b819ef345459c71aa3e7922c18ff003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+          "videoUrl": ""
+        },
+        {
+          "image": "https://static.wixstatic.com/media/32970e_8e4540210e444ec0bb59a539c916880af003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+          "videoUrl": ""
+        }
+      ]
+    }
+  ]
+}

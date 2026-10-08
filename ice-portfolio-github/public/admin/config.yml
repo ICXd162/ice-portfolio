@@ -1,0 +1,126 @@
+# Decap CMS: edits the files in /content and uploads images to /public/uploads.
+# Each "Publish" commits to GitHub, and Netlify rebuilds the site (about 1-2 minutes).
+backend:
+  name: github
+  repo: ICXd162/ice-portfolio
+  branch: main
+  commit_messages:
+    update: "อัปเดต {{slug}}"
+    uploadMedia: "อัปโหลด {{path}}"
+    deleteMedia: "ลบ {{path}}"
+
+locale: th
+media_folder: public/uploads
+public_folder: /uploads
+site_url: https://resplendent-daffodil-6cb7b2.netlify.app
+display_url: https://resplendent-daffodil-6cb7b2.netlify.app
+
+collections:
+  - name: sections
+    label: ส่วนต่างๆ ของเว็บ
+    editor: { preview: false }
+    files:
+      - name: hero
+        label: "1. หน้าแรก (Hero)"
+        file: content/hero.json
+        fields:
+          - { name: headline, label: หัวข้อใหญ่, widget: string, hint: "สั้นๆ ไม่เกิน 6 คำ จะได้ไม่เกิน 2 บรรทัด" }
+          - { name: headlineAccent, label: คำที่เป็นสีส้มต่อท้ายหัวข้อ, widget: string, required: false }
+          - { name: subtext, label: คำอธิบายใต้หัวข้อ, widget: text, hint: "ไม่เกิน 20 คำ" }
+          - { name: wideImage, label: รูปแนวนอน 16:9, widget: image, choose_url: true }
+          - { name: tallImage, label: รูปแนวตั้ง 9:16 ซ้อนมุม (เห็นบนจอคอม), widget: image, choose_url: true, required: false }
+
+      - name: short-form
+        label: "2. Short form (คลิปแนวตั้ง)"
+        file: content/short-form.json
+        fields:
+          - { name: heading, label: หัวข้อส่วน, widget: string }
+          - { name: intro, label: คำอธิบาย, widget: text, required: false }
+          - name: categories
+            label: หมวด (แท็บ) ลากเพื่อเรียงลำดับ
+            label_singular: หมวด
+            widget: list
+            collapsed: true
+            summary: "{{fields.label}}"
+            fields:
+              - { name: label, label: ชื่อหมวด, widget: string }
+              - name: items
+                label: คลิปในหมวดนี้ ลากเพื่อเรียงลำดับ
+                label_singular: คลิป
+                widget: list
+                collapsed: true
+                summary: "{{fields.videoUrl}}"
+                fields:
+                  - { name: image, label: ภาพปกแนวตั้ง 9:16, widget: image, choose_url: true }
+                  - { name: videoUrl, label: ลิงก์คลิป (TikTok / Reels / YouTube Shorts / Drive), widget: string, required: false }
+
+      - name: long-form
+        label: "3. Long form (YouTube)"
+        file: content/long-form.json
+        fields:
+          - { name: heading, label: หัวข้อส่วน, widget: string }
+          - name: videos
+            label: วิดีโอ ลากเพื่อเรียงลำดับ (อันแรกแสดงเป็นภาพใหญ่)
+            label_singular: วิดีโอ
+            widget: list
+            collapsed: true
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: ชื่อวิดีโอ, widget: string }
+              - { name: subtitle, label: บรรทัดรอง เช่น ชื่อช่องหรือลูกค้า, widget: string, required: false }
+              - { name: youtubeUrl, label: ลิงก์ YouTube, widget: string, hint: "วางลิงก์ได้เลย ภาพปกจะดึงจาก YouTube ให้อัตโนมัติ" }
+              - { name: thumbnail, label: ภาพปกเอง (ไม่ใส่ก็ได้), widget: image, choose_url: true, required: false }
+
+      - name: motion
+        label: "4. Motion graphics"
+        file: content/motion.json
+        fields:
+          - { name: heading, label: หัวข้อส่วน, widget: string }
+          - { name: intro, label: คำอธิบาย, widget: text, required: false }
+          - name: items
+            label: ผลงาน ลากเพื่อเรียงลำดับ (อันแรกได้ช่องใหญ่สุด)
+            label_singular: ผลงาน
+            widget: list
+            collapsed: true
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: ชื่อผลงาน, widget: string }
+              - { name: image, label: ภาพปก 16:9, widget: image, choose_url: true }
+              - { name: videoUrl, label: ลิงก์วิดีโอ (YouTube / Vimeo / Drive), widget: string, required: false }
+
+      - name: stills
+        label: "5. ภาพนิ่งและแบนเนอร์"
+        file: content/stills.json
+        fields:
+          - { name: heading, label: หัวข้อส่วน, widget: string }
+          - { name: intro, label: คำอธิบาย, widget: text, required: false }
+          - name: items
+            label: ภาพ ลากเพื่อเรียงลำดับ
+            label_singular: ภาพ
+            widget: list
+            collapsed: true
+            summary: "{{fields.alt}}"
+            fields:
+              - { name: image, label: ภาพ (ขนาดไหนก็ได้), widget: image, choose_url: true }
+              - { name: alt, label: คำอธิบายภาพสั้นๆ, widget: string, hint: "เช่น แบนเนอร์แคมเปญ ร้าน ABC" }
+              - { name: link, label: ลิงก์ (ไม่ใส่ก็ได้), widget: string, required: false }
+
+      - name: about
+        label: "6. เกี่ยวกับฉัน"
+        file: content/about.json
+        fields:
+          - { name: statement, label: แนะนำตัว, widget: text }
+          - { name: thaiName, label: ชื่อภาษาไทย, widget: string, required: false }
+          - { name: portrait, label: รูปโปรไฟล์ (สี่เหลี่ยมจัตุรัส), widget: image, choose_url: true, required: false }
+          - { name: genres, label: แนวงานที่วิ่งเป็นแถบ ลากเพื่อเรียง, label_singular: แนวงาน, widget: list, field: { name: genre, label: แนวงาน, widget: string } }
+
+      - name: contact
+        label: "7. ติดต่อ"
+        file: content/contact.json
+        fields:
+          - { name: heading, label: หัวข้อ, widget: string }
+          - { name: email, label: อีเมล, widget: string }
+          - { name: phone, label: เบอร์โทร, widget: string, required: false }
+          - { name: line, label: LINE ID, widget: string, required: false }
+          - { name: instagram, label: ลิงก์ Instagram, widget: string, required: false }
+          - { name: facebook, label: ลิงก์ Facebook, widget: string, required: false }

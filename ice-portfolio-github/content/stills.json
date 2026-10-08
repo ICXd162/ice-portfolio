@@ -1,0 +1,41 @@
+{
+  "heading": "Stills, banners and thumbnails.",
+  "intro": "Campaign banners, social graphics and YouTube thumbnails designed to be read at a glance.",
+  "items": [
+    {
+      "image": "https://picsum.photos/seed/ice-banner-campaign-wide/1200/628",
+      "alt": "Campaign banner, wide format",
+      "link": ""
+    },
+    {
+      "image": "https://picsum.photos/seed/ice-poster-event-portrait/800/1000",
+      "alt": "Event poster, portrait",
+      "link": ""
+    },
+    {
+      "image": "https://picsum.photos/seed/ice-social-square-post/900/900",
+      "alt": "Square social post",
+      "link": ""
+    },
+    {
+      "image": "https://picsum.photos/seed/ice-story-vertical-graphic/720/1280",
+      "alt": "Story graphic, vertical",
+      "link": ""
+    },
+    {
+      "image": "https://picsum.photos/seed/ice-youtube-thumbnail-design/1280/720",
+      "alt": "YouTube thumbnail design",
+      "link": ""
+    },
+    {
+      "image": "https://picsum.photos/seed/ice-product-still-studio/900/1125",
+      "alt": "Product still, studio light",
+      "link": ""
+    },
+    {
+      "image": "https://picsum.photos/seed/ice-travel-street-dusk/1200/800",
+      "alt": "Travel photograph, street at dusk",
+      "link": ""
+    }
+  ]
+}

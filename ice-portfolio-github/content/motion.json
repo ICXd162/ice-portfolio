@@ -1,0 +1,26 @@
+{
+  "heading": "Motion graphics that explain and move.",
+  "intro": "Animated maps, titles and illustrated history pieces, from the Japan documentary series.",
+  "items": [
+    {
+      "title": "Nihon Sankei: The Three Views of Japan",
+      "image": "https://static.wixstatic.com/media/32970e_4dd9f90b5dc1414082121399686491abf002.jpg",
+      "videoUrl": ""
+    },
+    {
+      "title": "Snow Monsters, the Giants of the Mountain",
+      "image": "https://static.wixstatic.com/media/32970e_55d5f66a52874de7bfdbe37f4fb196edf002.jpg",
+      "videoUrl": ""
+    },
+    {
+      "title": "Exploring Tohoku, Japan",
+      "image": "https://static.wixstatic.com/media/32970e_a7782b4b0d29491db947118872d5b2a0f002.jpg",
+      "videoUrl": ""
+    },
+    {
+      "title": "Visualizing History: Ginzan Onsen",
+      "image": "https://static.wixstatic.com/media/32970e_782ac05e4f314a64b18217f2b85f07dff002.jpg",
+      "videoUrl": ""
+    }
+  ]
+}
