@@ -1,0 +1,21 @@
+{
+  "heading": "How I work",
+  "intro": "Three steps from your footage to a finished file.",
+  "steps": [
+    {
+      "title": "Brief",
+      "body": "You send footage, references and the target platform. I reply with a timeline and a fixed quote.",
+      "image": "https://picsum.photos/seed/ice-process-1/1200/750"
+    },
+    {
+      "title": "Edit",
+      "body": "A rough cut to agree on story and pacing, then color, sound, captions and motion graphics.",
+      "image": "https://picsum.photos/seed/ice-process-2/1200/750"
+    },
+    {
+      "title": "Deliver",
+      "body": "Final files exported for each platform, with agreed revisions included.",
+      "image": "https://picsum.photos/seed/ice-process-3/1200/750"
+    }
+  ]
+}

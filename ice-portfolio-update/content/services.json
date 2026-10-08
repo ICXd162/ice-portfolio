@@ -1,0 +1,34 @@
+{
+  "heading": "Services",
+  "intro": "Everything from the first cut to the thumbnail.",
+  "items": [
+    {
+      "title": "Short form editing",
+      "body": "Reels, TikTok and Shorts with hook-first structure, animated captions and sound design.",
+      "image": "https://picsum.photos/seed/ice-service-1/1200/700"
+    },
+    {
+      "title": "Long form editing",
+      "body": "YouTube episodes, travel series and home tours with story structure, color and clean audio.",
+      "image": "https://picsum.photos/seed/ice-service-2/1200/700"
+    },
+    {
+      "title": "Motion graphics",
+      "body": "Animated titles, maps, lower thirds and explainer sequences that match your brand.",
+      "image": "https://picsum.photos/seed/ice-service-3/1200/700"
+    },
+    {
+      "title": "Banners and thumbnails",
+      "body": "Campaign banners, social posts and YouTube thumbnails that read clearly at small sizes.",
+      "image": "https://picsum.photos/seed/ice-service-4/1200/700"
+    },
+    {
+      "title": "Shooting and live production",
+      "body": "On-location filming and live stream production when a project needs footage, not just the edit.",
+      "image": "https://picsum.photos/seed/ice-service-5/1200/700"
+    }
+  ],
+  "beforeImage": "",
+  "afterImage": "",
+  "beforeAfterTitle": "Color grading, before and after"
+}

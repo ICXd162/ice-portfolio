@@ -1,0 +1,86 @@
+{
+  "heading": "Featured work",
+  "intro": "Short form, long form, motion graphics and banners. Filter by type.",
+  "items": [
+    {
+      "title": "Project title 1",
+      "category": "Short form",
+      "tags": [
+        "Client name"
+      ],
+      "videoUrl": "",
+      "cover": "https://picsum.photos/seed/ice-work-1/540/960",
+      "orientation": "portrait"
+    },
+    {
+      "title": "Project title 2",
+      "category": "Long form",
+      "tags": [
+        "Client name"
+      ],
+      "videoUrl": "",
+      "cover": "https://picsum.photos/seed/ice-work-2/1280/720",
+      "orientation": "landscape"
+    },
+    {
+      "title": "Project title 3",
+      "category": "Motion graphics",
+      "tags": [
+        "Client name"
+      ],
+      "videoUrl": "",
+      "cover": "https://picsum.photos/seed/ice-work-3/1280/720",
+      "orientation": "landscape"
+    },
+    {
+      "title": "Project title 4",
+      "category": "Graphic & banner",
+      "tags": [
+        "Client name"
+      ],
+      "videoUrl": "",
+      "cover": "https://picsum.photos/seed/ice-work-4/1280/720",
+      "orientation": "landscape"
+    },
+    {
+      "title": "Project title 5",
+      "category": "Short form",
+      "tags": [
+        "Client name"
+      ],
+      "videoUrl": "",
+      "cover": "https://picsum.photos/seed/ice-work-5/540/960",
+      "orientation": "portrait"
+    },
+    {
+      "title": "Project title 6",
+      "category": "Long form",
+      "tags": [
+        "Client name"
+      ],
+      "videoUrl": "",
+      "cover": "https://picsum.photos/seed/ice-work-6/1280/720",
+      "orientation": "landscape"
+    },
+    {
+      "title": "Project title 7",
+      "category": "Motion graphics",
+      "tags": [
+        "Client name"
+      ],
+      "videoUrl": "",
+      "cover": "https://picsum.photos/seed/ice-work-7/1280/720",
+      "orientation": "landscape"
+    },
+    {
+      "title": "Project title 8",
+      "category": "Graphic & banner",
+      "tags": [
+        "Client name"
+      ],
+      "videoUrl": "",
+      "cover": "https://picsum.photos/seed/ice-work-8/1280/720",
+      "orientation": "landscape"
+    }
+  ]
+}

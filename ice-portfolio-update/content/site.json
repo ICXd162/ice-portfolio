@@ -1,0 +1,60 @@
+{
+  "name": "Ice Pongphisut",
+  "headline": "Edits that hold attention.",
+  "subtext": "",
+  "heroImage": "/uploads/placeholders/portrait.png",
+  "clientsLabel": "Brands I've worked with:",
+  "clients": [
+    {
+      "name": "Client 1",
+      "logo": "/uploads/placeholders/logo-1.png"
+    },
+    {
+      "name": "Client 2",
+      "logo": "/uploads/placeholders/logo-2.png"
+    },
+    {
+      "name": "Client 3",
+      "logo": "/uploads/placeholders/logo-3.png"
+    },
+    {
+      "name": "Client 4",
+      "logo": "/uploads/placeholders/logo-4.png"
+    },
+    {
+      "name": "Client 5",
+      "logo": "/uploads/placeholders/logo-5.png"
+    }
+  ],
+  "aboutLabel": "About me",
+  "about": "I'm Ice, Pongphisut Kaewnil. I edit travel, food, gaming and brand content for YouTube channels and social teams, and I care most about pacing.",
+  "thaiName": "พงศ์พิสุทธิ แก้วนิล (ไอซ์)",
+  "showreelImage": "https://picsum.photos/seed/ice-showreel/1600/900",
+  "showreelUrl": "",
+  "heroSlides": [
+    {
+      "image": "https://picsum.photos/seed/ice-slide-1/800/800",
+      "link": ""
+    },
+    {
+      "image": "https://picsum.photos/seed/ice-slide-2/800/800",
+      "link": ""
+    },
+    {
+      "image": "https://picsum.photos/seed/ice-slide-3/800/800",
+      "link": ""
+    },
+    {
+      "image": "https://picsum.photos/seed/ice-slide-4/800/800",
+      "link": ""
+    },
+    {
+      "image": "https://picsum.photos/seed/ice-slide-5/800/800",
+      "link": ""
+    },
+    {
+      "image": "https://picsum.photos/seed/ice-slide-6/800/800",
+      "link": ""
+    }
+  ]
+}
