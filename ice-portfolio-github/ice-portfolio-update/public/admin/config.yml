@@ -1,6 +1,6 @@
 # Decap CMS: edits the files in /content and uploads images to /public/uploads.
 # Each "Publish" commits to GitHub, and Netlify rebuilds the site (about 1-2 minutes).
-# Paths start with ice-portfolio-github/ because the site lives in that folder of the repository.
+# Paths start with ice-portfolio-github/ice-portfolio-update/ because the site lives in that folder of the repository.
 backend:
   name: github
   repo: ICXd162/ice-portfolio
@@ -11,7 +11,7 @@ backend:
     deleteMedia: "ลบ {{path}}"
 
 locale: th
-media_folder: ice-portfolio-github/public/uploads
+media_folder: ice-portfolio-github/ice-portfolio-update/public/uploads
 public_folder: /uploads
 site_url: https://resplendent-daffodil-6cb7b2.netlify.app
 display_url: https://resplendent-daffodil-6cb7b2.netlify.app
@@ -23,7 +23,7 @@ collections:
     files:
       - name: site
         label: "1. หน้าแรก และ เกี่ยวกับฉัน"
-        file: ice-portfolio-github/content/site.json
+        file: ice-portfolio-github/ice-portfolio-update/content/site.json
         fields:
           - { name: name, label: ชื่อที่แสดง, widget: string }
           - { name: headline, label: หัวข้อใหญ่, widget: string, hint: "สั้นๆ ไม่เกิน 6 คำ จะได้ไม่เกิน 2 บรรทัด" }
@@ -49,7 +49,7 @@ collections:
 
       - name: works
         label: "2. ผลงาน"
-        file: ice-portfolio-github/content/works.json
+        file: ice-portfolio-github/ice-portfolio-update/content/works.json
         fields:
           - { name: heading, label: หัวข้อส่วน, widget: string }
           - { name: intro, label: คำอธิบาย, widget: text, required: false }
@@ -69,7 +69,7 @@ collections:
 
       - name: process
         label: "3. ขั้นตอนการทำงาน"
-        file: ice-portfolio-github/content/process.json
+        file: ice-portfolio-github/ice-portfolio-update/content/process.json
         fields:
           - { name: heading, label: หัวข้อส่วน, widget: string }
           - { name: intro, label: คำอธิบาย, widget: text, required: false }
@@ -86,7 +86,7 @@ collections:
 
       - name: stats
         label: "4. ตัวเลขผลงาน (ไม่ใส่ = ซ่อน)"
-        file: ice-portfolio-github/content/stats.json
+        file: ice-portfolio-github/ice-portfolio-update/content/stats.json
         fields:
           - { name: heading, label: หัวข้อเล็ก, widget: string, required: false }
           - name: items
@@ -102,7 +102,7 @@ collections:
 
       - name: services
         label: "5. บริการ"
-        file: ice-portfolio-github/content/services.json
+        file: ice-portfolio-github/ice-portfolio-update/content/services.json
         fields:
           - { name: heading, label: หัวข้อส่วน, widget: string }
           - { name: intro, label: คำอธิบาย, widget: text, required: false }
@@ -122,7 +122,7 @@ collections:
 
       - name: testimonials
         label: "6. รีวิวจากลูกค้า (ไม่ใส่ = ซ่อน)"
-        file: ice-portfolio-github/content/testimonials.json
+        file: ice-portfolio-github/ice-portfolio-update/content/testimonials.json
         fields:
           - { name: heading, label: หัวข้อส่วน, widget: string }
           - name: items
@@ -140,7 +140,7 @@ collections:
 
       - name: pricing
         label: "7. แพ็กเกจราคา (ไม่ใส่ = ซ่อน)"
-        file: ice-portfolio-github/content/pricing.json
+        file: ice-portfolio-github/ice-portfolio-update/content/pricing.json
         fields:
           - { name: heading, label: หัวข้อส่วน, widget: string }
           - { name: intro, label: คำอธิบาย, widget: text, required: false }
@@ -161,7 +161,7 @@ collections:
 
       - name: contact
         label: "8. ติดต่อ"
-        file: ice-portfolio-github/content/contact.json
+        file: ice-portfolio-github/ice-portfolio-update/content/contact.json
         fields:
           - { name: heading, label: หัวข้อ, widget: string }
           - { name: intro, label: คำอธิบาย, widget: text, required: false }
@@ -173,7 +173,7 @@ collections:
 
       - name: faq
         label: "9. คำถามที่พบบ่อย (ไม่ใส่ = ซ่อน)"
-        file: ice-portfolio-github/content/faq.json
+        file: ice-portfolio-github/ice-portfolio-update/content/faq.json
         fields:
           - { name: heading, label: หัวข้อส่วน, widget: string }
           - name: items
