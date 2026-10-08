@@ -10,7 +10,7 @@ backend:
     deleteMedia: "ลบ {{path}}"
 
 locale: th
-media_folder: public/uploads
+media_folder: ice-portfolio-github/public/uploads
 public_folder: /uploads
 site_url: https://resplendent-daffodil-6cb7b2.netlify.app
 display_url: https://resplendent-daffodil-6cb7b2.netlify.app
@@ -22,7 +22,7 @@ collections:
     files:
       - name: hero
         label: "1. หน้าแรก (Hero)"
-        file: content/hero.json
+        file: ice-portfolio-github/content/hero.json
         fields:
           - { name: headline, label: หัวข้อใหญ่, widget: string, hint: "สั้นๆ ไม่เกิน 6 คำ จะได้ไม่เกิน 2 บรรทัด" }
           - { name: headlineAccent, label: คำที่เป็นสีส้มต่อท้ายหัวข้อ, widget: string, required: false }
@@ -32,7 +32,7 @@ collections:
 
       - name: short-form
         label: "2. Short form (คลิปแนวตั้ง)"
-        file: content/short-form.json
+        file: ice-portfolio-github/content/short-form.json
         fields:
           - { name: heading, label: หัวข้อส่วน, widget: string }
           - { name: intro, label: คำอธิบาย, widget: text, required: false }
@@ -56,7 +56,7 @@ collections:
 
       - name: long-form
         label: "3. Long form (YouTube)"
-        file: content/long-form.json
+        file: ice-portfolio-github/content/long-form.json
         fields:
           - { name: heading, label: หัวข้อส่วน, widget: string }
           - name: videos
@@ -73,7 +73,7 @@ collections:
 
       - name: motion
         label: "4. Motion graphics"
-        file: content/motion.json
+        file: ice-portfolio-github/content/motion.json
         fields:
           - { name: heading, label: หัวข้อส่วน, widget: string }
           - { name: intro, label: คำอธิบาย, widget: text, required: false }
@@ -90,7 +90,7 @@ collections:
 
       - name: stills
         label: "5. ภาพนิ่งและแบนเนอร์"
-        file: content/stills.json
+        file: ice-portfolio-github/content/stills.json
         fields:
           - { name: heading, label: หัวข้อส่วน, widget: string }
           - { name: intro, label: คำอธิบาย, widget: text, required: false }
@@ -107,7 +107,7 @@ collections:
 
       - name: about
         label: "6. เกี่ยวกับฉัน"
-        file: content/about.json
+        file: ice-portfolio-github/content/about.json
         fields:
           - { name: statement, label: แนะนำตัว, widget: text }
           - { name: thaiName, label: ชื่อภาษาไทย, widget: string, required: false }
@@ -116,7 +116,7 @@ collections:
 
       - name: contact
         label: "7. ติดต่อ"
-        file: content/contact.json
+        file: ice-portfolio-github/content/contact.json
         fields:
           - { name: heading, label: หัวข้อ, widget: string }
           - { name: email, label: อีเมล, widget: string }
