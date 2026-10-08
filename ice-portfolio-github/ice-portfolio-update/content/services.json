@@ -1,0 +1,34 @@
+{
+  "heading": "Services",
+  "intro": "Everything from the first cut to the thumbnail.",
+  "items": [
+    {
+      "title": "Short form editing",
+      "body": "Reels, TikTok and Shorts with hook-first structure, animated captions and sound design.",
+      "image": "https://static.wixstatic.com/media/32970e_c9041ba0e82a429988a6b26021b4a98af003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg"
+    },
+    {
+      "title": "Long form editing",
+      "body": "YouTube episodes, travel series and home tours with story structure, color and clean audio.",
+      "image": "https://i.ytimg.com/vi/XaGW0tT5IdA/maxresdefault.jpg"
+    },
+    {
+      "title": "Motion graphics",
+      "body": "Animated titles, maps, lower thirds and explainer sequences that match your brand.",
+      "image": "https://static.wixstatic.com/media/32970e_55d5f66a52874de7bfdbe37f4fb196edf002.jpg"
+    },
+    {
+      "title": "Banners and thumbnails",
+      "body": "Campaign banners, social posts and YouTube thumbnails that read clearly at small sizes.",
+      "image": "https://picsum.photos/seed/ice-youtube-thumbnail-design/1280/720"
+    },
+    {
+      "title": "Shooting and live production",
+      "body": "On-location filming and live stream production when a project needs footage, not just the edit.",
+      "image": "https://static.wixstatic.com/media/32970e_2c6af63eddc24a03965ed739b7c253caf003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg"
+    }
+  ],
+  "beforeImage": "",
+  "afterImage": "",
+  "beforeAfterTitle": "Color grading, before and after"
+}

@@ -1,0 +1,188 @@
+# Decap CMS: edits the files in /content and uploads images to /public/uploads.
+# Each "Publish" commits to GitHub, and Netlify rebuilds the site (about 1-2 minutes).
+# Paths start with ice-portfolio-github/ because the site lives in that folder of the repository.
+backend:
+  name: github
+  repo: ICXd162/ice-portfolio
+  branch: main
+  commit_messages:
+    update: "อัปเดต {{slug}}"
+    uploadMedia: "อัปโหลด {{path}}"
+    deleteMedia: "ลบ {{path}}"
+
+locale: th
+media_folder: ice-portfolio-github/public/uploads
+public_folder: /uploads
+site_url: https://resplendent-daffodil-6cb7b2.netlify.app
+display_url: https://resplendent-daffodil-6cb7b2.netlify.app
+
+collections:
+  - name: sections
+    label: ส่วนต่างๆ ของเว็บ
+    editor: { preview: false }
+    files:
+      - name: site
+        label: "1. หน้าแรก และ เกี่ยวกับฉัน"
+        file: ice-portfolio-github/content/site.json
+        fields:
+          - { name: name, label: ชื่อที่แสดง, widget: string }
+          - { name: headline, label: หัวข้อใหญ่, widget: string, hint: "สั้นๆ ไม่เกิน 6 คำ จะได้ไม่เกิน 2 บรรทัด" }
+          - { name: subtext, label: คำอธิบายใต้หัวข้อ, widget: text, required: false, hint: "ไม่เกิน 20 คำ" }
+          - { name: heroImage, label: รูปใหญ่ตรงกลาง (แนวตั้ง เช่น รูปโปรไฟล์), widget: image, choose_url: true }
+          - { name: heroTiles, label: รูปเล็กด้านขวา (ใส่ 2 รูป), label_singular: รูป, widget: list, max: 2, field: { name: image, label: รูป, widget: image, choose_url: true } }
+          - { name: clientsLabel, label: ข้อความหน้าโลโก้ลูกค้า, widget: string, required: false }
+          - name: clients
+            label: โลโก้ลูกค้า (วิ่งเป็นแถบล่างสุดของหน้าแรก ไม่ใส่ = ซ่อน)
+            label_singular: โลโก้
+            widget: list
+            required: false
+            collapsed: true
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: ชื่อแบรนด์, widget: string }
+              - { name: logo, label: ไฟล์โลโก้ (PNG พื้นใส หรือ SVG), widget: image, choose_url: true }
+          - { name: aboutLabel, label: หัวข้อส่วนเกี่ยวกับฉัน, widget: string }
+          - { name: about, label: แนะนำตัว, widget: text }
+          - { name: thaiName, label: ชื่อภาษาไทย, widget: string, required: false }
+          - { name: showreelImage, label: ภาพปก Showreel, widget: image, choose_url: true, required: false }
+          - { name: showreelUrl, label: ลิงก์ Showreel (YouTube / Vimeo / Drive), widget: string, required: false }
+
+      - name: works
+        label: "2. ผลงาน"
+        file: ice-portfolio-github/content/works.json
+        fields:
+          - { name: heading, label: หัวข้อส่วน, widget: string }
+          - { name: intro, label: คำอธิบาย, widget: text, required: false }
+          - name: items
+            label: ผลงาน ลากเพื่อเรียงลำดับ (8 ชิ้นแรกแสดงก่อน ที่เหลือกด Show more)
+            label_singular: ผลงาน
+            widget: list
+            collapsed: true
+            summary: "{{fields.category}} | {{fields.title}}"
+            fields:
+              - { name: title, label: ชื่อผลงาน, widget: string }
+              - { name: category, label: หมวด (ใช้เป็นปุ่มกรอง), widget: select, options: ["Short form", "Long form", "Motion graphics", "Graphic & banner", "Color grading", "Shooting"] }
+              - { name: tags, label: แท็กเพิ่มเติม เช่น ชื่อลูกค้า (คั่นด้วยจุลภาค), widget: list, required: false }
+              - { name: videoUrl, label: ลิงก์วิดีโอ (YouTube / TikTok / Reels / Drive), widget: string, required: false, hint: "ถ้าเป็น YouTube และไม่ใส่ภาพปก ระบบจะดึงภาพปกให้เอง" }
+              - { name: cover, label: ภาพปก, widget: image, choose_url: true, required: false }
+              - { name: orientation, label: สัดส่วนภาพปก, widget: select, default: landscape, options: [{ label: "แนวนอน 16:9", value: landscape }, { label: "แนวตั้ง 9:16 (Shorts / Reels)", value: portrait }] }
+
+      - name: process
+        label: "3. ขั้นตอนการทำงาน"
+        file: ice-portfolio-github/content/process.json
+        fields:
+          - { name: heading, label: หัวข้อส่วน, widget: string }
+          - { name: intro, label: คำอธิบาย, widget: text, required: false }
+          - name: steps
+            label: ขั้นตอน ลากเพื่อเรียงลำดับ
+            label_singular: ขั้นตอน
+            widget: list
+            collapsed: true
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: ชื่อขั้นตอน, widget: string }
+              - { name: body, label: คำอธิบาย, widget: text }
+              - { name: image, label: รูป, widget: image, choose_url: true, required: false }
+
+      - name: stats
+        label: "4. ตัวเลขผลงาน (ไม่ใส่ = ซ่อน)"
+        file: ice-portfolio-github/content/stats.json
+        fields:
+          - { name: heading, label: หัวข้อเล็ก, widget: string, required: false }
+          - name: items
+            label: ตัวเลข (แนะนำ 4 ช่อง)
+            label_singular: ตัวเลข
+            widget: list
+            required: false
+            summary: "{{fields.value}}{{fields.suffix}} {{fields.label}}"
+            fields:
+              - { name: value, label: ตัวเลข, widget: number, value_type: int }
+              - { name: suffix, label: ต่อท้าย เช่น + หรือ %, widget: string, required: false }
+              - { name: label, label: คำอธิบาย เช่น โปรเจกต์ที่ทำ, widget: string }
+
+      - name: services
+        label: "5. บริการ"
+        file: ice-portfolio-github/content/services.json
+        fields:
+          - { name: heading, label: หัวข้อส่วน, widget: string }
+          - { name: intro, label: คำอธิบาย, widget: text, required: false }
+          - name: items
+            label: บริการ ลากเพื่อเรียงลำดับ (2 อันแรกได้การ์ดใหญ่)
+            label_singular: บริการ
+            widget: list
+            collapsed: true
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: ชื่อบริการ, widget: string }
+              - { name: body, label: คำอธิบาย, widget: text }
+              - { name: image, label: รูป, widget: image, choose_url: true, required: false }
+          - { name: beforeAfterTitle, label: หัวข้อภาพเทียบก่อน/หลัง, widget: string, required: false }
+          - { name: beforeImage, label: ภาพก่อนแก้สี (ใส่ทั้งสองภาพจึงจะแสดง), widget: image, choose_url: true, required: false }
+          - { name: afterImage, label: ภาพหลังแก้สี, widget: image, choose_url: true, required: false }
+
+      - name: testimonials
+        label: "6. รีวิวจากลูกค้า (ไม่ใส่ = ซ่อน)"
+        file: ice-portfolio-github/content/testimonials.json
+        fields:
+          - { name: heading, label: หัวข้อส่วน, widget: string }
+          - name: items
+            label: รีวิว (ใส่เฉพาะรีวิวจริงที่ลูกค้าอนุญาต)
+            label_singular: รีวิว
+            widget: list
+            required: false
+            collapsed: true
+            summary: "{{fields.name}}"
+            fields:
+              - { name: quote, label: ข้อความรีวิว (สั้นๆ 1-3 บรรทัด), widget: text }
+              - { name: name, label: ชื่อลูกค้า, widget: string }
+              - { name: role, label: ตำแหน่ง / บริษัท / ช่อง, widget: string, required: false }
+              - { name: photo, label: รูปลูกค้า, widget: image, choose_url: true, required: false }
+
+      - name: pricing
+        label: "7. แพ็กเกจราคา (ไม่ใส่ = ซ่อน)"
+        file: ice-portfolio-github/content/pricing.json
+        fields:
+          - { name: heading, label: หัวข้อส่วน, widget: string }
+          - { name: intro, label: คำอธิบาย, widget: text, required: false }
+          - name: plans
+            label: แพ็กเกจ
+            label_singular: แพ็กเกจ
+            widget: list
+            required: false
+            collapsed: true
+            summary: "{{fields.name}} {{fields.price}}"
+            fields:
+              - { name: name, label: ชื่อแพ็กเกจ, widget: string }
+              - { name: description, label: คำอธิบายสั้นๆ, widget: string, required: false }
+              - { name: price, label: ราคา เช่น ฿3,500, widget: string }
+              - { name: period, label: ต่อ เช่น คลิป หรือ เดือน, widget: string, required: false }
+              - { name: features, label: สิ่งที่ได้, label_singular: รายการ, widget: list, field: { name: feature, label: รายการ, widget: string } }
+              - { name: highlighted, label: เน้นเป็นแพ็กเกจแนะนำ (การ์ดสีส้ม), widget: boolean, default: false }
+
+      - name: contact
+        label: "8. ติดต่อ"
+        file: ice-portfolio-github/content/contact.json
+        fields:
+          - { name: heading, label: หัวข้อ, widget: string }
+          - { name: intro, label: คำอธิบาย, widget: text, required: false }
+          - { name: email, label: อีเมล, widget: string }
+          - { name: phone, label: เบอร์โทร, widget: string, required: false }
+          - { name: line, label: LINE ID, widget: string, required: false }
+          - { name: instagram, label: ลิงก์ Instagram, widget: string, required: false }
+          - { name: facebook, label: ลิงก์ Facebook, widget: string, required: false }
+
+      - name: faq
+        label: "9. คำถามที่พบบ่อย (ไม่ใส่ = ซ่อน)"
+        file: ice-portfolio-github/content/faq.json
+        fields:
+          - { name: heading, label: หัวข้อส่วน, widget: string }
+          - name: items
+            label: คำถาม ลากเพื่อเรียงลำดับ
+            label_singular: คำถาม
+            widget: list
+            required: false
+            collapsed: true
+            summary: "{{fields.question}}"
+            fields:
+              - { name: question, label: คำถาม, widget: string }
+              - { name: answer, label: คำตอบ, widget: text }

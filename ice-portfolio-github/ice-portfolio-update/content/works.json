@@ -1,0 +1,146 @@
+{
+  "heading": "Featured work",
+  "intro": "Short form, long form, motion graphics and banners. Filter by type.",
+  "items": [
+    {
+      "title": "ตะลุยโอซาก้า เมืองที่สายกินหลงรัก!",
+      "category": "Long form",
+      "tags": [
+        "Osaka travel episode"
+      ],
+      "cover": "",
+      "orientation": "landscape",
+      "videoUrl": "https://www.youtube.com/watch?v=rugQWwnHwP0"
+    },
+    {
+      "title": "Nihon Sankei: The Three Views of Japan",
+      "category": "Motion graphics",
+      "tags": [
+        "Motion graphics"
+      ],
+      "cover": "https://static.wixstatic.com/media/32970e_4dd9f90b5dc1414082121399686491abf002.jpg",
+      "orientation": "landscape",
+      "videoUrl": ""
+    },
+    {
+      "title": "Talking head short 1",
+      "category": "Short form",
+      "tags": [
+        "Talking head"
+      ],
+      "cover": "https://static.wixstatic.com/media/32970e_5e97bc77f5f34641bc36fc52b0efae78f003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+      "orientation": "portrait",
+      "videoUrl": ""
+    },
+    {
+      "title": "เปิดบ้านชั้นหนึ่ง Home Tour ทาสีภายใน ตามใจภรรยา",
+      "category": "Long form",
+      "tags": [
+        "IceBank Diary"
+      ],
+      "cover": "",
+      "orientation": "landscape",
+      "videoUrl": "https://www.youtube.com/watch?v=XaGW0tT5IdA"
+    },
+    {
+      "title": "Snow Monsters, the Giants of the Mountain",
+      "category": "Motion graphics",
+      "tags": [
+        "Motion graphics"
+      ],
+      "cover": "https://static.wixstatic.com/media/32970e_55d5f66a52874de7bfdbe37f4fb196edf002.jpg",
+      "orientation": "landscape",
+      "videoUrl": ""
+    },
+    {
+      "title": "Travel & review short 1",
+      "category": "Short form",
+      "tags": [
+        "Travel & review"
+      ],
+      "cover": "https://static.wixstatic.com/media/32970e_c9041ba0e82a429988a6b26021b4a98af003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+      "orientation": "portrait",
+      "videoUrl": ""
+    },
+    {
+      "title": "ปักหมุด 10 ร้านอาหารอร่อยแสงออกปาก 'ตรัง'",
+      "category": "Long form",
+      "tags": [
+        "Trang food guide"
+      ],
+      "cover": "",
+      "orientation": "landscape",
+      "videoUrl": "https://www.youtube.com/watch?v=BaE_c08slBA"
+    },
+    {
+      "title": "Exploring Tohoku, Japan",
+      "category": "Motion graphics",
+      "tags": [
+        "Motion graphics"
+      ],
+      "cover": "https://static.wixstatic.com/media/32970e_a7782b4b0d29491db947118872d5b2a0f002.jpg",
+      "orientation": "landscape",
+      "videoUrl": ""
+    },
+    {
+      "title": "ตามรอยพญานาค 3 วัน 2 คืน บึงกาฬ-อุดรธานี",
+      "category": "Long form",
+      "tags": [
+        "Northeast road trip"
+      ],
+      "cover": "",
+      "orientation": "landscape",
+      "videoUrl": "https://www.youtube.com/watch?v=r2mVjEKtol0"
+    },
+    {
+      "title": "Visualizing History: Ginzan Onsen",
+      "category": "Motion graphics",
+      "tags": [
+        "Motion graphics"
+      ],
+      "cover": "https://static.wixstatic.com/media/32970e_782ac05e4f314a64b18217f2b85f07dff002.jpg",
+      "orientation": "landscape",
+      "videoUrl": ""
+    },
+    {
+      "title": "Gaming & esports short 1",
+      "category": "Short form",
+      "tags": [
+        "Gaming & esports"
+      ],
+      "cover": "https://static.wixstatic.com/media/32970e_2c6af63eddc24a03965ed739b7c253caf003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+      "orientation": "portrait",
+      "videoUrl": ""
+    },
+    {
+      "title": "Talking head short 2",
+      "category": "Short form",
+      "tags": [
+        "Talking head"
+      ],
+      "cover": "https://static.wixstatic.com/media/32970e_d8d27b37a4f341c089de47731d99e9e8f003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+      "orientation": "portrait",
+      "videoUrl": ""
+    },
+    {
+      "title": "Travel & review short 2",
+      "category": "Short form",
+      "tags": [
+        "Travel & review"
+      ],
+      "cover": "https://static.wixstatic.com/media/32970e_f54d26291e7f41d49a2dcfa3ad7bb729f003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+      "orientation": "portrait",
+      "videoUrl": ""
+    },
+    {
+      "title": "Gaming & esports short 2",
+      "category": "Short form",
+      "tags": [
+        "Gaming & esports"
+      ],
+      "cover": "https://static.wixstatic.com/media/32970e_52871096ba014bfda6a832ac5ce76f3af003.jpg/v1/fit/w_540,h_960,q_90,enc_auto/file.jpg",
+      "orientation": "portrait",
+      "videoUrl": ""
+    }
+  ]
+}
