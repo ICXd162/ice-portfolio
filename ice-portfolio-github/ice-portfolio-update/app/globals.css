@@ -47,16 +47,40 @@ body {
   outline-offset: 3px;
 }
 
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+/* Two hero marquees, matching the reference: work slides drift up (~120px/s),
+   client logos drift left (~30px/s). Durations are set inline from the item count. */
+@keyframes marquee-x {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
 }
-.marquee-track {
-  animation: marquee 40s linear infinite;
+@keyframes marquee-y {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(0, -50%, 0); }
 }
+.marquee-track { animation: marquee-x var(--marquee-dur, 40s) linear infinite; }
+.marquee-up { animation: marquee-y var(--marquee-dur, 20s) linear infinite; }
+.marquee-pause:hover .marquee-up,
+.marquee-pause:focus-within .marquee-up { animation-play-state: paused; }
+
+.fade-y {
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+}
+.fade-x {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 90%, transparent);
+}
+/* Blends any portrait (cutout PNG or regular photo) into the hero gradient. */
+.portrait-blend {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 16%, #000 84%, transparent 100%), linear-gradient(to bottom, #000 72%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent 0%, #000 16%, #000 84%, transparent 100%), linear-gradient(to bottom, #000 72%, transparent 100%);
+  mask-composite: intersect;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .marquee-track { animation: none; }
+  .marquee-track, .marquee-up { animation: none; }
 }
 
 .no-scrollbar { scrollbar-width: none; }

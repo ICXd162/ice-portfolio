@@ -27,12 +27,21 @@ collections:
         fields:
           - { name: name, label: ชื่อที่แสดง, widget: string }
           - { name: headline, label: หัวข้อใหญ่, widget: string, hint: "สั้นๆ ไม่เกิน 6 คำ จะได้ไม่เกิน 2 บรรทัด" }
-          - { name: subtext, label: คำอธิบายใต้หัวข้อ, widget: text, required: false, hint: "ไม่เกิน 20 คำ" }
-          - { name: heroImage, label: รูปใหญ่ตรงกลาง (แนวตั้ง เช่น รูปโปรไฟล์), widget: image, choose_url: true }
-          - { name: heroTiles, label: รูปเล็กด้านขวา (ใส่ 2 รูป), label_singular: รูป, widget: list, max: 2, field: { name: image, label: รูป, widget: image, choose_url: true } }
+          - { name: subtext, label: คำอธิบายใต้หัวข้อ (ไม่ใส่ก็ได้ ตัวอย่างต้นแบบไม่มี), widget: text, required: false }
+          - { name: heroImage, label: รูปหน้าคุณตรงกลาง, widget: image, choose_url: true, hint: "ดีที่สุดคือไฟล์ PNG ตัดพื้นหลังออก (เช่นจาก remove.bg) ขนาดอย่างน้อย 1400 px ระบบจะไล่ขอบให้กลืนกับพื้นสีส้มเอง" }
+          - name: heroSlides
+            label: ผลงานสไลด์ด้านขวา (เลื่อนขึ้นอัตโนมัติ) ลากเพื่อเรียงลำดับ
+            label_singular: สไลด์
+            widget: list
+            collapsed: true
+            summary: "{{fields.image}}"
+            hint: "แนะนำ 4-8 รูป ภาพสี่เหลี่ยมจัตุรัสจะสวยที่สุด"
+            fields:
+              - { name: image, label: รูป (สี่เหลี่ยมจัตุรัส), widget: image, choose_url: true }
+              - { name: link, label: ลิงก์เมื่อกดรูป (ไม่ใส่ก็ได้), widget: string, required: false }
           - { name: clientsLabel, label: ข้อความหน้าโลโก้ลูกค้า, widget: string, required: false }
           - name: clients
-            label: โลโก้ลูกค้า (วิ่งเป็นแถบล่างสุดของหน้าแรก ไม่ใส่ = ซ่อน)
+            label: โลโก้ลูกค้าที่เคยร่วมงาน (เลื่อนซ้ายอัตโนมัติ ลบหมด = ซ่อน)
             label_singular: โลโก้
             widget: list
             required: false
@@ -40,7 +49,7 @@ collections:
             summary: "{{fields.name}}"
             fields:
               - { name: name, label: ชื่อแบรนด์, widget: string }
-              - { name: logo, label: ไฟล์โลโก้ (PNG พื้นใส หรือ SVG), widget: image, choose_url: true }
+              - { name: logo, label: ไฟล์โลโก้ (PNG พื้นใส หรือ SVG จะแสดงเป็นสีขาว), widget: image, choose_url: true }
           - { name: aboutLabel, label: หัวข้อส่วนเกี่ยวกับฉัน, widget: string }
           - { name: about, label: แนะนำตัว, widget: text }
           - { name: thaiName, label: ชื่อภาษาไทย, widget: string, required: false }

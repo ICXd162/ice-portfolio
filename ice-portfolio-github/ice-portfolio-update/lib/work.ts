@@ -33,7 +33,9 @@ export const site = {
   headline: text(siteData.headline),
   subtext: text(siteData.subtext),
   heroImage: text(siteData.heroImage),
-  heroTiles: list<string>(siteData.heroTiles).map(text).filter(Boolean).slice(0, 2),
+  heroSlides: list<{ image: string; link?: string }>((siteData as { heroSlides?: unknown }).heroSlides)
+    .map((x) => ({ image: text(x.image), link: text(x.link) }))
+    .filter((x) => x.image),
   clientsLabel: text(siteData.clientsLabel),
   clients: list<Client>(siteData.clients).filter((c) => c.logo),
   aboutLabel: text(siteData.aboutLabel),

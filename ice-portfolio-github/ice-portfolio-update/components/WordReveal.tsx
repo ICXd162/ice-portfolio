@@ -5,7 +5,7 @@ import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } f
 // Words brighten from muted to full ink as the paragraph scrolls through view,
 // so the statement is read at the pace it is revealed.
 function Word({ word, progress, range }: { word: string; progress: MotionValue<number>; range: [number, number] }) {
-  const opacity = useTransform(progress, range, [0.22, 1]);
+  const opacity = useTransform(progress, range, [0.3, 1]);
   return (
     <motion.span style={{ opacity }} className="inline">
       {word}{" "}
