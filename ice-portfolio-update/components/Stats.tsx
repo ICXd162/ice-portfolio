@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { animate, useInView, useReducedMotion } from "motion/react";
+import { EASE_OUT } from "@/lib/motion";
 import { Reveal } from "./Reveal";
 import { stats } from "@/lib/work";
 
@@ -18,7 +19,7 @@ function Counter({ value, suffix }: { value: number; suffix?: string }) {
     }
     const c = animate(0, value, {
       duration: 1.4,
-      ease: [0.16, 1, 0.3, 1],
+      ease: EASE_OUT,
       onUpdate: (v) => (el.textContent = `${Math.round(v)}${suffix ?? ""}`),
     });
     return () => c.stop();
@@ -44,7 +45,7 @@ export function Stats() {
         )}
         <dl className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-4">
           {stats.items.map((s, i) => (
-            <Reveal key={s.label} delay={i * 0.06} className="text-center">
+            <Reveal key={s.label} delay={Math.min(i, 4) * 0.06} className="text-center">
               <dd className="text-5xl font-medium tracking-[-0.04em] text-paper md:text-6xl">
                 <Counter value={Number(s.value)} suffix={s.suffix} />
               </dd>

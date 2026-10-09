@@ -1,6 +1,7 @@
 "use client";
 import { useCallback, useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { EASE_OUT } from "@/lib/motion";
 import { Play, ArrowUpRight, ArrowDown } from "@phosphor-icons/react";
 import { Media } from "./Media";
 import { SectionHead } from "./SectionHead";
@@ -24,7 +25,7 @@ function VideoCard({ v, onPlay }: { v: Video; onPlay: (v: Video) => void }) {
           alt={v.title}
           sizes={vertical ? "(min-width: 1024px) 22vw, 45vw" : "(min-width: 768px) 46vw, 100vw"}
           className="h-full w-full"
-          imgClassName="transition-transform duration-700 group-hover:scale-[1.04] motion-reduce:transition-none"
+          imgClassName="transition-transform duration-300 group-hover:scale-[1.04] motion-reduce:transition-none"
         />
         <span aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
         {playable && (
@@ -128,10 +129,10 @@ export function VideoWork() {
           <AnimatePresence mode="wait" initial={false}>
             <motion.ul
               key={tab}
-              initial={reduce ? false : { opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8 }}
-              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              initial={reduce ? false : { opacity: 0, transform: "translateY(16px)" }}
+              animate={{ opacity: 1, transform: "translateY(0px)" }}
+              exit={reduce ? { opacity: 0 } : { opacity: 0, transform: "translateY(-8px)" }}
+              transition={{ duration: 0.35, ease: EASE_OUT }}
               className={
                 vertical
                   ? "grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 lg:grid-cols-4 lg:gap-x-5"
@@ -142,10 +143,10 @@ export function VideoWork() {
                 <motion.li
                   key={`${v.cover}-${i}`}
                   className={v.featured ? (vertical ? "col-span-2 row-span-2" : "md:col-span-2") : undefined}
-                  initial={reduce ? false : { opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={reduce ? false : { opacity: 0, transform: "translateY(20px)" }}
+                  whileInView={{ opacity: 1, transform: "translateY(0px)" }}
                   viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.6, delay: (i % 4) * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                  transition={{ duration: 0.6, delay: (i % 4) * 0.06, ease: EASE_OUT }}
                 >
                   <VideoCard v={v} onPlay={setPlaying} />
                 </motion.li>

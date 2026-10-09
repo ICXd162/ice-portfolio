@@ -28,10 +28,10 @@ export function Button({ href, children, variant = "accent", size = "md", classN
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      className={`group inline-flex items-center gap-3 rounded-full font-medium whitespace-nowrap transition-[transform,background-color] duration-300 active:scale-[0.97] ${sz} ${styles[variant]} ${className}`}
+      className={`group inline-flex items-center gap-3 rounded-full font-medium whitespace-nowrap transition-[transform,background-color] duration-160 active:scale-[0.97] ${sz} ${styles[variant]} ${className}`}
     >
       {children}
-      <span className={`flex items-center justify-center rounded-full transition-transform duration-300 group-hover:rotate-45 motion-reduce:transition-none ${dot} ${dotStyle}`}>
+      <span className={`flex items-center justify-center rounded-full transition-transform duration-200 group-hover:rotate-45 motion-reduce:transition-none ${dot} ${dotStyle}`}>
         <ArrowUpRight size={14} weight="bold" />
       </span>
     </a>

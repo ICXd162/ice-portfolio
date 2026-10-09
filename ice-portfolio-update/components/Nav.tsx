@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { EASE_OUT } from "@/lib/motion";
 import { List, X, ArrowUpRight } from "@phosphor-icons/react";
 import { site } from "@/lib/work";
 
@@ -54,10 +55,10 @@ export function Nav() {
         {open && (
           <motion.div
             id="site-menu"
-            initial={reduce ? false : { opacity: 0, y: -8, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -8, scale: 0.98 }}
-            transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+            initial={reduce ? false : { opacity: 0, transform: "translateY(-8px) scale(0.98)" }}
+            animate={{ opacity: 1, transform: "translateY(0px) scale(1)" }}
+            exit={{ opacity: 0, transform: "translateY(-8px) scale(0.98)" }}
+            transition={{ duration: 0.22, ease: EASE_OUT }}
             className="absolute top-16 right-0 w-[min(20rem,calc(100vw-2rem))] origin-top-right rounded-[var(--radius-card)] bg-ink-2 p-2 shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
           >
             <ul className="grid">

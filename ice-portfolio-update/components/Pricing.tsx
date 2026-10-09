@@ -17,7 +17,7 @@ export function Pricing() {
             <Reveal
               key={p.name}
               as="li"
-              delay={i * 0.08}
+              delay={Math.min(i, 4) * 0.08}
               className={`flex flex-col rounded-[var(--radius-card)] p-7 ${p.highlighted ? "bg-accent text-white" : "bg-ink-2"}`}
             >
               <h3 className="text-xl font-medium">{p.name}</h3>

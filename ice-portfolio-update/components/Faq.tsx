@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { EASE_OUT } from "@/lib/motion";
 import { Plus } from "@phosphor-icons/react";
 import { SectionHead } from "./SectionHead";
 import { faq } from "@/lib/work";
@@ -26,7 +27,7 @@ export function Faq() {
                   className="flex w-full items-center justify-between gap-6 px-6 py-5 text-left text-[17px] font-medium"
                 >
                   {f.question}
-                  <Plus size={18} weight="bold" className={`shrink-0 text-accent transition-transform duration-300 ${on ? "rotate-45" : ""}`} />
+                  <Plus size={18} weight="bold" className={`shrink-0 text-accent transition-transform duration-200 ${on ? "rotate-45" : ""}`} />
                 </button>
                 <AnimatePresence initial={false}>
                   {on && (
@@ -35,7 +36,7 @@ export function Faq() {
                       initial={reduce ? false : { height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={reduce ? { opacity: 0 } : { height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ duration: 0.2, ease: EASE_OUT }}
                       className="overflow-hidden"
                     >
                       <p className="max-w-[62ch] px-6 pb-6 text-[15px] leading-relaxed text-mute">{f.answer}</p>

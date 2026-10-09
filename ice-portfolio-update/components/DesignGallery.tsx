@@ -1,6 +1,7 @@
 "use client";
 import { useCallback, useMemo, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
+import { EASE_OUT } from "@/lib/motion";
 import { MagnifyingGlassPlus, ArrowUpRight } from "@phosphor-icons/react";
 import { Media } from "./Media";
 import { SectionHead } from "./SectionHead";
@@ -53,10 +54,10 @@ export function DesignGallery({ heading, intro, items }: { heading: string; intr
           {shown.map((d, i) => (
             <motion.li
               key={`${filter}-${d.image}-${i}`}
-              initial={reduce ? false : { opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={reduce ? false : { opacity: 0, transform: "translateY(20px)" }}
+              whileInView={{ opacity: 1, transform: "translateY(0px)" }}
               viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.55, delay: (i % 4) * 0.05, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.55, delay: (i % 4) * 0.05, ease: EASE_OUT }}
               className="mb-3 break-inside-avoid md:mb-4"
             >
               <button
@@ -71,12 +72,12 @@ export function DesignGallery({ heading, intro, items }: { heading: string; intr
                       alt={d.title}
                       sizes="(min-width: 1280px) 24vw, (min-width: 768px) 32vw, 48vw"
                       className="h-full w-full"
-                      imgClassName="transition-transform duration-700 group-hover:scale-[1.03] motion-reduce:transition-none"
+                      imgClassName="transition-transform duration-300 group-hover:scale-[1.03] motion-reduce:transition-none"
                     />
                   </div>
                 ) : (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={parseCrop(d.image).url} alt={d.title} loading="lazy" className="block h-auto w-full transition-transform duration-700 group-hover:scale-[1.03] motion-reduce:transition-none" />
+                  <img src={parseCrop(d.image).url} alt={d.title} loading="lazy" className="block h-auto w-full transition-transform duration-300 group-hover:scale-[1.03] motion-reduce:transition-none" />
                 )}
                 <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-gradient-to-t from-black/75 to-transparent p-3 pt-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
                   <span className="min-w-0">

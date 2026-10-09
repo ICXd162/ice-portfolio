@@ -1,5 +1,6 @@
 "use client";
 import { motion, useReducedMotion } from "motion/react";
+import { EASE_OUT } from "@/lib/motion";
 
 // Heading whose words rise out of a mask, one after another, when it scrolls into view.
 export function SplitHeading({
@@ -31,8 +32,8 @@ export function SplitHeading({
         <span key={`${w}-${i}`} aria-hidden className="inline-block overflow-hidden pb-[0.12em] align-top">
           <motion.span
             className="inline-block"
-            variants={{ hidden: { y: "105%" }, show: { y: "0%" } }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            variants={{ hidden: { transform: "translateY(105%)" }, show: { transform: "translateY(0%)" } }}
+            transition={{ duration: 0.8, ease: EASE_OUT }}
           >
             {w}
             {i < words.length - 1 ? " " : ""}

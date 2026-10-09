@@ -23,6 +23,10 @@
 
   --radius-card: 20px;
   --radius-media: 14px;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --default-transition-timing-function: var(--ease-out);
 }
 
 html {

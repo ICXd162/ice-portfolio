@@ -13,7 +13,7 @@ export function Process() {
         <SectionHead heading={workflow.heading} intro={workflow.intro} />
         <ol className={`mt-14 grid grid-cols-1 gap-4 md:gap-5 ${cols}`}>
           {workflow.steps.map((s, i) => (
-            <Reveal key={s.title} as="li" delay={i * 0.1} className="flex flex-col rounded-[var(--radius-card)] bg-ink-2 p-3">
+            <Reveal key={s.title} as="li" delay={Math.min(i, 4) * 0.08} className="flex flex-col rounded-[var(--radius-card)] bg-ink-2 p-3">
               <div className="flex items-start justify-between gap-4 px-3 pt-3">
                 <h3 className="text-2xl font-medium tracking-[-0.03em]">{s.title}</h3>
                 <span className="rounded-full bg-ink-3 px-3 py-1 text-xs text-mute tabular-nums">

@@ -113,8 +113,8 @@ export function Contact() {
                 <motion.div
                   key="sent"
                   role="status"
-                  initial={reduce ? false : { opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={reduce ? false : { opacity: 0, transform: "translateY(12px)" }}
+                  animate={{ opacity: 1, transform: "translateY(0px)" }}
                   className="flex h-full flex-col justify-center rounded-[var(--radius-card)] bg-ink p-8"
                 >
                   <CheckCircle size={36} weight="fill" className="text-accent" />

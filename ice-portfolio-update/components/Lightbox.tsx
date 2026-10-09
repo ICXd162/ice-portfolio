@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { EASE_OUT } from "@/lib/motion";
 import { X, CaretLeft, CaretRight } from "@phosphor-icons/react";
 
 // Full-screen viewer used by the video player and the design gallery.
@@ -59,7 +60,7 @@ export function Lightbox({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: reduce ? 0 : 0.25 }}
+          transition={{ duration: reduce ? 0 : 0.25, ease: EASE_OUT }}
           className="fixed inset-0 z-[70] flex flex-col bg-black/90 backdrop-blur-sm"
           onClick={onClose}
         >
@@ -76,9 +77,9 @@ export function Lightbox({
           </div>
           <div className="relative flex min-h-0 flex-1 items-center justify-center px-4 pb-6 md:px-20">
             <motion.div
-              initial={reduce ? false : { opacity: 0, scale: 0.97 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              initial={reduce ? false : { opacity: 0, transform: "scale(0.97)" }}
+              animate={{ opacity: 1, transform: "scale(1)" }}
+              transition={{ duration: 0.3, ease: EASE_OUT }}
               className="flex max-h-full max-w-full items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
