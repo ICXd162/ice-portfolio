@@ -139,11 +139,22 @@ export const workflow = {
   steps: list<Step>(processData.steps).filter((s) => s.title),
 };
 
-export type Service = { title: string; body: string; image?: string };
+export type ServiceCategory = "video" | "design";
+export type Service = { title: string; body: string; image?: string; category: ServiceCategory };
+const sd = servicesData as { videoLabel?: string; designLabel?: string };
 export const services = {
   heading: text(servicesData.heading),
   intro: text(servicesData.intro),
-  items: list<Service>(servicesData.items).filter((s) => s.title),
+  videoLabel: text(sd.videoLabel) || "Video",
+  designLabel: text(sd.designLabel) || "Graphic design",
+  items: list<Record<string, unknown>>(servicesData.items)
+    .map((s) => ({
+      title: text(s.title),
+      body: text(s.body),
+      image: text(s.image),
+      category: (text(s.category) === "design" ? "design" : "video") as ServiceCategory,
+    }))
+    .filter((s) => s.title) as Service[],
   beforeImage: text(servicesData.beforeImage),
   afterImage: text(servicesData.afterImage),
   beforeAfterTitle: text(servicesData.beforeAfterTitle),

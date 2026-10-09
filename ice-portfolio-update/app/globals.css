@@ -87,5 +87,10 @@ body {
   .marquee-track, .marquee-up { animation: none; }
 }
 
+/* Auto-advance progress for the Services tabs. Paused while the reader hovers, focuses or scrolls away. */
+@keyframes tab-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.tab-progress { transform-origin: left; animation: tab-progress var(--tab-dur, 10s) linear forwards; }
+.tab-progress[data-paused="true"] { animation-play-state: paused; }
+
 .no-scrollbar { scrollbar-width: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }

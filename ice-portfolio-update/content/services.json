@@ -3,32 +3,69 @@
   "intro": "Everything from the first cut to the thumbnail.",
   "items": [
     {
+      "category": "video",
       "title": "Short form editing",
       "body": "Reels, TikTok and Shorts with hook-first structure, animated captions and sound design.",
-      "image": "https://picsum.photos/seed/ice-service-1/1200/700"
+      "image": "/uploads/services/video-short-form.jpg"
     },
     {
+      "category": "video",
       "title": "Long form editing",
-      "body": "YouTube episodes, travel series and home tours with story structure, color and clean audio.",
-      "image": "https://picsum.photos/seed/ice-service-2/1200/700"
+      "body": "YouTube episodes, travel series and home tours with story structure, pacing and clean audio.",
+      "image": "/uploads/services/video-long-form.jpg"
     },
     {
+      "category": "video",
       "title": "Motion graphics",
       "body": "Animated titles, maps, lower thirds and explainer sequences that match your brand.",
-      "image": "https://picsum.photos/seed/ice-service-3/1200/700"
+      "image": "/uploads/services/video-motion-graphics.jpg"
     },
     {
-      "title": "Banners and thumbnails",
-      "body": "Campaign banners, social posts and YouTube thumbnails that read clearly at small sizes.",
-      "image": "https://picsum.photos/seed/ice-service-4/1200/700"
+      "category": "video",
+      "title": "Color grading",
+      "body": "From flat log footage to a consistent look across every shot, camera and episode.",
+      "image": "/uploads/services/video-color-grading.jpg"
     },
     {
+      "category": "video",
       "title": "Shooting and live production",
       "body": "On-location filming and live stream production when a project needs footage, not just the edit.",
-      "image": "https://picsum.photos/seed/ice-service-5/1200/700"
+      "image": "/uploads/services/video-shooting-live.jpg"
+    },
+    {
+      "category": "design",
+      "title": "YouTube thumbnails",
+      "body": "Bold, readable thumbnails built to win the click at small sizes, with A/B variants on request.",
+      "image": "/uploads/services/design-thumbnails.jpg"
+    },
+    {
+      "category": "design",
+      "title": "Social media posts",
+      "body": "Single posts and carousels for Instagram, Facebook and TikTok in one consistent style.",
+      "image": "/uploads/services/design-social-posts.jpg"
+    },
+    {
+      "category": "design",
+      "title": "Banners and ads",
+      "body": "Web banners and ad sets resized cleanly for every placement, from leaderboard to story.",
+      "image": "/uploads/services/design-banners-ads.jpg"
+    },
+    {
+      "category": "design",
+      "title": "Posters and print",
+      "body": "Event posters, flyers and print pieces delivered press-ready with bleed and CMYK.",
+      "image": "/uploads/services/design-posters-print.jpg"
+    },
+    {
+      "category": "design",
+      "title": "Brand identity",
+      "body": "Logo, color palette and type system so every video and post looks like one brand.",
+      "image": "/uploads/services/design-brand-identity.jpg"
     }
   ],
   "beforeImage": "",
   "afterImage": "",
-  "beforeAfterTitle": "Color grading, before and after"
+  "beforeAfterTitle": "Color grading, before and after",
+  "videoLabel": "Video",
+  "designLabel": "Graphic design"
 }

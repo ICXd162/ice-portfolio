@@ -145,13 +145,16 @@ collections:
         fields:
           - { name: heading, label: หัวข้อส่วน, widget: string }
           - { name: intro, label: คำอธิบาย, widget: text, required: false }
+          - { name: videoLabel, label: ชื่อแท็บวิดีโอ, widget: string, default: Video }
+          - { name: designLabel, label: ชื่อแท็บกราฟิก, widget: string, default: Graphic design }
           - name: items
-            label: บริการ ลากเพื่อเรียงลำดับ (2 อันแรกได้การ์ดใหญ่)
+            label: บริการ ลากเพื่อเรียงลำดับ (ในแต่ละแท็บ 2 อันแรกได้การ์ดใหญ่ / สลับแท็บอัตโนมัติทุก 10 วิ)
             label_singular: บริการ
             widget: list
             collapsed: true
-            summary: "{{fields.title}}"
+            summary: "{{fields.category}} · {{fields.title}}"
             fields:
+              - { name: category, label: แท็บ, widget: select, default: video, options: [{ label: "วิดีโอ", value: video }, { label: "กราฟิก", value: design }] }
               - { name: title, label: ชื่อบริการ, widget: string }
               - { name: body, label: คำอธิบาย, widget: text }
               - { name: image, label: รูป, widget: imagecrop, aspect: "16/10", required: false }
