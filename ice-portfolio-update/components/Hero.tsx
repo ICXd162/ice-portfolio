@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { Button } from "./Button";
 import { site } from "@/lib/work";
+import { parseCrop, cropStyle } from "@/lib/crop";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -71,7 +72,7 @@ export function Hero() {
               const dup = i >= slides.length;
               const img = (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={s.image} alt={dup ? "" : `Work sample ${i + 1}`} loading="eager" decoding="async" className="aspect-square w-full object-cover" />
+                <img src={parseCrop(s.image).url} alt={dup ? "" : `Work sample ${i + 1}`} loading="eager" decoding="async" style={cropStyle(parseCrop(s.image))} className="aspect-square w-full object-cover" />
               );
               return (
                 <li key={`${s.image}-${i}`} aria-hidden={dup}>
@@ -102,7 +103,7 @@ export function Hero() {
             className="portrait-blend h-full w-full"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={site.heroImage} alt={`Portrait of ${site.name}`} fetchPriority="high" className="h-full w-full object-cover object-top" />
+            <img src={parseCrop(site.heroImage).url} alt={`Portrait of ${site.name}`} fetchPriority="high" style={cropStyle(parseCrop(site.heroImage))} className="h-full w-full object-cover object-top" />
           </motion.div>
         </motion.div>
       )}
@@ -156,7 +157,7 @@ export function Hero() {
                 {[...site.clients, ...site.clients, ...site.clients, ...site.clients].map((c, i) => (
                   <li key={`${c.logo}-${i}`} aria-hidden={i >= site.clients.length} className="shrink-0">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={c.logo} alt={i < site.clients.length ? c.name : ""} className="h-7 w-auto max-w-[8rem] object-contain brightness-0 invert lg:h-9 lg:max-w-[9rem]" />
+                    <img src={parseCrop(c.logo).url} alt={i < site.clients.length ? c.name : ""} className="h-7 w-auto max-w-[8rem] object-contain brightness-0 invert lg:h-9 lg:max-w-[9rem]" />
                   </li>
                 ))}
               </ul>

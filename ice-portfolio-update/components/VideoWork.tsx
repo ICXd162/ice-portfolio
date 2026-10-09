@@ -141,6 +141,7 @@ export function VideoWork() {
               {items.slice(0, shown).map((v, i) => (
                 <motion.li
                   key={`${v.cover}-${i}`}
+                  className={v.featured ? (vertical ? "col-span-2 row-span-2" : "md:col-span-2") : undefined}
                   initial={reduce ? false : { opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}

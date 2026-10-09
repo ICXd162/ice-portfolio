@@ -12,30 +12,46 @@ import { Pricing } from "@/components/Pricing";
 import { Contact } from "@/components/Contact";
 import { Faq } from "@/components/Faq";
 import { Footer } from "@/components/Footer";
+import { theme, type SectionId } from "@/lib/work";
+
+// Section order and visibility come from the admin (หน้าแรก > ลำดับส่วนต่างๆ).
+const SECTIONS: Record<SectionId, () => React.ReactNode> = {
+  about: () => <About overlap={false} />,
+  video: () => <VideoWork />,
+  design: () => <DesignWork />,
+  process: () => <Process />,
+  stats: () => <Stats />,
+  services: () => <Services />,
+  testimonials: () => <Testimonials />,
+  pricing: () => <Pricing />,
+  contact: () => <Contact />,
+  faq: () => <Faq />,
+};
 
 export default function Page() {
+  const [first, ...rest] = theme.sections;
+  // When About comes first it slides up over the pinned hero (large screens).
+  const aboutFirst = first === "about";
+  const after = aboutFirst ? rest : theme.sections;
   return (
     <>
       <ScrollProgress />
       <Nav />
       <main>
-        {/* On large screens the hero stays pinned while the About card slides up over it. */}
-        <div className="relative">
-          <div className="lg:sticky lg:top-0">
-            <Hero />
+        {aboutFirst ? (
+          <div className="relative">
+            <div className="lg:sticky lg:top-0">
+              <Hero />
+            </div>
+            <About />
           </div>
-          <About />
-        </div>
+        ) : (
+          <Hero />
+        )}
         <div className="relative z-10 bg-ink">
-          <VideoWork />
-          <DesignWork />
-          <Process />
-          <Stats />
-          <Services />
-          <Testimonials />
-          <Pricing />
-          <Contact />
-          <Faq />
+          {after.map((id) => (
+            <div key={id}>{SECTIONS[id]()}</div>
+          ))}
         </div>
       </main>
       <div className="relative z-10 bg-ink">

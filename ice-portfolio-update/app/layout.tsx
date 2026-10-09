@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
+import { theme } from "@/lib/work";
 
 const plexThai = localFont({
   src: [
@@ -23,7 +24,11 @@ export const viewport: Viewport = { themeColor: "#101010", colorScheme: "dark" }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} ${plexThai.variable}`}>
+    <html
+      lang="en"
+      className={`${GeistSans.variable} ${GeistMono.variable} ${plexThai.variable}`}
+      style={{ ["--color-accent" as string]: theme.accent }}
+    >
       <body className="font-sans">{children}</body>
     </html>
   );

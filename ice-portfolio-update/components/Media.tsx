@@ -3,6 +3,7 @@ import { memo } from "react";
 import Image from "next/image";
 import { useState } from "react";
 import { ImageBroken } from "@phosphor-icons/react";
+import { parseCrop, cropStyle } from "@/lib/crop";
 
 // Image with layout-shaped loading skeleton, fade-in, and an inline error state.
 function MediaImpl({
@@ -21,6 +22,7 @@ function MediaImpl({
   imgClassName?: string;
 }) {
   const [state, setState] = useState<"loading" | "ready" | "error">("loading");
+  const crop = parseCrop(src);
   return (
     <div className={`relative overflow-hidden bg-ink-3 ${className}`}>
       {state === "loading" && (
@@ -33,9 +35,10 @@ function MediaImpl({
         </div>
       ) : (
         <Image
-          src={src}
+          src={crop.url}
           alt={alt}
           fill
+          style={cropStyle(crop)}
           sizes={sizes}
           priority={priority}
           onLoad={() => setState("ready")}

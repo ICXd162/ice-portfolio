@@ -5,7 +5,8 @@ import { MagnifyingGlassPlus, ArrowUpRight } from "@phosphor-icons/react";
 import { Media } from "./Media";
 import { SectionHead } from "./SectionHead";
 import { Lightbox } from "./Lightbox";
-import type { Design } from "@/lib/work";
+import { DESIGN_FRAMES, type Design } from "@/lib/work";
+import { parseCrop } from "@/lib/crop";
 
 type Item = Design & { dims: { w: number; h: number } | null };
 
@@ -63,8 +64,8 @@ export function DesignGallery({ heading, intro, items }: { heading: string; intr
                 className="group relative block w-full overflow-hidden rounded-[var(--radius-media)] bg-ink-2 text-left"
                 aria-label={`View ${d.title} full size`}
               >
-                {d.dims ? (
-                  <div style={{ aspectRatio: `${d.dims.w} / ${d.dims.h}` }}>
+                {DESIGN_FRAMES[d.frame] || d.dims ? (
+                  <div style={{ aspectRatio: DESIGN_FRAMES[d.frame] ?? `${d.dims!.w} / ${d.dims!.h}` }}>
                     <Media
                       src={d.image}
                       alt={d.title}
@@ -75,7 +76,7 @@ export function DesignGallery({ heading, intro, items }: { heading: string; intr
                   </div>
                 ) : (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={d.image} alt={d.title} loading="lazy" className="block h-auto w-full transition-transform duration-700 group-hover:scale-[1.03] motion-reduce:transition-none" />
+                  <img src={parseCrop(d.image).url} alt={d.title} loading="lazy" className="block h-auto w-full transition-transform duration-700 group-hover:scale-[1.03] motion-reduce:transition-none" />
                 )}
                 <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-gradient-to-t from-black/75 to-transparent p-3 pt-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
                   <span className="min-w-0">
@@ -118,7 +119,7 @@ export function DesignGallery({ heading, intro, items }: { heading: string; intr
       >
         {current && (
           // eslint-disable-next-line @next/next/no-img-element
-          <img key={current.image} src={current.image} alt={current.title} className="max-h-[80dvh] max-w-[min(92vw,1400px)] rounded-[var(--radius-media)] object-contain" />
+          <img key={current.image} src={parseCrop(current.image).url} alt={current.title} className="max-h-[80dvh] max-w-[min(92vw,1400px)] rounded-[var(--radius-media)] object-contain" />
         )}
       </Lightbox>
     </section>

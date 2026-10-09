@@ -28,6 +28,44 @@ export const telHref = (phone: string) => {
   return `tel:${d.startsWith("0") ? `+66${d.slice(1)}` : `+${d}`}`;
 };
 
+export const SECTION_IDS = ["about", "video", "design", "process", "stats", "services", "testimonials", "pricing", "contact", "faq"] as const;
+export type SectionId = (typeof SECTION_IDS)[number];
+
+/** Section order and visibility from the admin; any section missing from the list is appended, visible. */
+const SECTION_LABELS: Record<string, SectionId> = {
+  "เกี่ยวกับฉัน": "about",
+  "งานวิดีโอ": "video",
+  "งานกราฟิก": "design",
+  "ขั้นตอนการทำงาน": "process",
+  "ตัวเลขผลงาน": "stats",
+  "บริการ": "services",
+  "รีวิวลูกค้า": "testimonials",
+  "แพ็กเกจราคา": "pricing",
+  "ติดต่อ": "contact",
+  "คำถามที่พบบ่อย": "faq",
+};
+
+function sectionOrder(raw: unknown): SectionId[] {
+  const rows = list<{ section?: string; visible?: boolean }>(raw);
+  const seen = new Set<string>();
+  const out: SectionId[] = [];
+  for (const r of rows) {
+    const label = text(r.section);
+    const id = (SECTION_LABELS[label] ?? label.toLowerCase()) as SectionId;
+    if (!(SECTION_IDS as readonly string[]).includes(id) || seen.has(id)) continue;
+    seen.add(id);
+    if (r.visible !== false) out.push(id);
+  }
+  for (const id of SECTION_IDS) if (!seen.has(id)) out.push(id);
+  return out;
+}
+
+const HEX = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i;
+export const theme = {
+  accent: HEX.test(text((siteData as { accent?: string }).accent)) ? text((siteData as { accent?: string }).accent) : "#ff3f1e",
+  sections: sectionOrder((siteData as { sections?: unknown }).sections),
+};
+
 export type Client = { name: string; logo: string };
 export const site = {
   name: text(siteData.name),
@@ -48,7 +86,7 @@ export const site = {
 
 export type VideoType = "Short form" | "Long form" | "Motion graphics";
 export const VIDEO_TYPES: VideoType[] = ["Short form", "Long form", "Motion graphics"];
-export type Video = { title: string; client: string; type: VideoType; videoUrl: string; youtube: string | null; cover: string };
+export type Video = { title: string; client: string; type: VideoType; videoUrl: string; youtube: string | null; cover: string; featured: boolean };
 export const videos = {
   heading: text(videosData.heading),
   intro: text(videosData.intro),
@@ -63,13 +101,22 @@ export const videos = {
         videoUrl: text(v.videoUrl),
         youtube: id,
         cover: text(v.cover) || (id ? ytThumb(id) : ""),
+        featured: v.featured === true,
       } as Video;
     })
     .filter((v) => v.cover),
 };
 
 export const DESIGN_TYPES = ["Banner", "Thumbnail", "Social post", "Poster & print", "Other"] as const;
-export type Design = { title: string; client: string; type: string; image: string; link: string };
+export const DESIGN_FRAMES = {
+  original: null,
+  square: "1 / 1",
+  portrait: "4 / 5",
+  landscape: "16 / 9",
+  banner: "3 / 1",
+} as const;
+export type DesignFrame = keyof typeof DESIGN_FRAMES;
+export type Design = { title: string; client: string; type: string; image: string; link: string; frame: DesignFrame };
 export const designs = {
   heading: text(designsData.heading),
   intro: text(designsData.intro),
@@ -80,6 +127,7 @@ export const designs = {
       type: text(d.type) || "Other",
       image: text(d.image),
       link: text(d.link),
+      frame: (text(d.frame) in DESIGN_FRAMES ? text(d.frame) : "original") as DesignFrame,
     }))
     .filter((d) => d.image) as Design[],
 };

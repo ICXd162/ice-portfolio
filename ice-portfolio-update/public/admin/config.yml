@@ -19,16 +19,26 @@ display_url: https://resplendent-daffodil-6cb7b2.netlify.app
 collections:
   - name: sections
     label: ส่วนต่างๆ ของเว็บ
-    editor: { preview: false }
     files:
       - name: site
         label: "1. หน้าแรก และ เกี่ยวกับฉัน"
         file: ice-portfolio-update/content/site.json
         fields:
           - { name: name, label: ชื่อที่แสดง, widget: string }
+          - { name: accent, label: สีหลักของเว็บ (ปุ่ม หัวข้อ ไฮไลต์), widget: color, default: "#ff3f1e" }
+          - name: sections
+            label: ลำดับส่วนต่างๆ ของหน้าเว็บ (ลากเพื่อเรียง / ปิดสวิตช์เพื่อซ่อน)
+            label_singular: ส่วน
+            widget: list
+            collapsed: true
+            summary: "{{fields.section}} | {{fields.visible | ternary('แสดงอยู่', 'ซ่อนอยู่')}}"
+            hint: "หน้าแรก (Hero) อยู่บนสุดเสมอ ถ้า About อยู่ลำดับแรก จะมีเอฟเฟกต์เลื่อนทับหน้าแรก"
+            fields:
+              - { name: section, label: ส่วน, widget: select, options: ["เกี่ยวกับฉัน", "งานวิดีโอ", "งานกราฟิก", "ขั้นตอนการทำงาน", "ตัวเลขผลงาน", "บริการ", "รีวิวลูกค้า", "แพ็กเกจราคา", "ติดต่อ", "คำถามที่พบบ่อย"] }
+              - { name: visible, label: แสดงบนเว็บ, widget: boolean, default: true }
           - { name: headline, label: หัวข้อใหญ่, widget: string, hint: "สั้นๆ ไม่เกิน 6 คำ จะได้ไม่เกิน 2 บรรทัด" }
           - { name: subtext, label: คำอธิบายใต้หัวข้อ (ไม่ใส่ก็ได้ ตัวอย่างต้นแบบไม่มี), widget: text, required: false }
-          - { name: heroImage, label: รูปหน้าคุณตรงกลาง, widget: image, choose_url: true, hint: "ดีที่สุดคือไฟล์ PNG ตัดพื้นหลังออก (เช่นจาก remove.bg) ขนาดอย่างน้อย 1400 px ระบบจะไล่ขอบให้กลืนกับพื้นสีส้มเอง" }
+          - { name: heroImage, label: รูปหน้าคุณตรงกลาง, widget: imagecrop, aspect: "4/5", hint: "ดีที่สุดคือไฟล์ PNG ตัดพื้นหลังออก (เช่นจาก remove.bg) ขนาดอย่างน้อย 1400 px ระบบจะไล่ขอบให้กลืนกับพื้นสีส้มเอง" }
           - name: heroSlides
             label: ผลงานสไลด์ด้านขวา (เลื่อนขึ้นอัตโนมัติ) ลากเพื่อเรียงลำดับ
             label_singular: สไลด์
@@ -37,7 +47,7 @@ collections:
             summary: "{{fields.image}}"
             hint: "แนะนำ 4-8 รูป ภาพสี่เหลี่ยมจัตุรัสจะสวยที่สุด"
             fields:
-              - { name: image, label: รูป (สี่เหลี่ยมจัตุรัส), widget: image, choose_url: true }
+              - { name: image, label: รูป (สี่เหลี่ยมจัตุรัส), widget: imagecrop, aspect: "1/1" }
               - { name: link, label: ลิงก์เมื่อกดรูป (ไม่ใส่ก็ได้), widget: string, required: false }
           - { name: clientsLabel, label: ข้อความหน้าโลโก้ลูกค้า, widget: string, required: false }
           - name: clients
@@ -53,7 +63,7 @@ collections:
           - { name: aboutLabel, label: หัวข้อส่วนเกี่ยวกับฉัน, widget: string }
           - { name: about, label: แนะนำตัว, widget: text }
           - { name: thaiName, label: ชื่อภาษาไทย, widget: string, required: false }
-          - { name: showreelImage, label: ภาพปก Showreel, widget: image, choose_url: true, required: false }
+          - { name: showreelImage, label: ภาพปก Showreel, widget: imagecrop, aspect: "16/9", required: false }
           - { name: showreelUrl, label: ลิงก์ Showreel (YouTube / Vimeo / Drive), widget: string, required: false }
 
       - name: videos
@@ -73,7 +83,8 @@ collections:
               - { name: client, label: ลูกค้า / ช่อง, widget: string, required: false }
               - { name: type, label: ประเภท, widget: select, default: "Long form", options: ["Short form", "Long form", "Motion graphics"], hint: "Short form แสดงเป็นกรอบแนวตั้ง 9:16 ที่เหลือเป็นแนวนอน 16:9" }
               - { name: videoUrl, label: ลิงก์วิดีโอ, widget: string, required: false, hint: "ลิงก์ YouTube (รวม Shorts) จะเล่นในหน้าเว็บได้เลยและดึงภาพปกให้เอง ลิงก์อื่นเช่น TikTok / Drive จะเปิดแท็บใหม่" }
-              - { name: cover, label: ภาพปก (ไม่ใส่ได้ถ้าเป็น YouTube), widget: image, choose_url: true, required: false }
+              - { name: cover, label: ภาพปก (ไม่ใส่ได้ถ้าเป็น YouTube), widget: imagecrop, aspect: "16/9", required: false }
+              - { name: featured, label: แสดงเป็นการ์ดใหญ่ (เด่นกว่าชิ้นอื่น), widget: boolean, default: false, required: false }
 
       - name: designs
         label: "3. งานกราฟิก"
@@ -91,7 +102,8 @@ collections:
               - { name: title, label: ชื่องาน, widget: string }
               - { name: client, label: ลูกค้า, widget: string, required: false }
               - { name: type, label: ประเภท (ใช้เป็นปุ่มกรอง), widget: select, default: "Banner", options: ["Banner", "Thumbnail", "Social post", "Poster & print", "Other"] }
-              - { name: image, label: ภาพผลงาน (ขนาดเท่าจริง ระบบจัดสัดส่วนให้เอง), widget: image, choose_url: true }
+              - { name: image, label: ภาพผลงาน, widget: imagecrop, aspect: "4/5" }
+              - { name: frame, label: กรอบที่แสดงบนเว็บ, widget: select, default: original, options: [{ label: "ขนาดจริง (ไม่ครอป)", value: original }, { label: "สี่เหลี่ยมจัตุรัส 1:1", value: square }, { label: "แนวตั้ง 4:5", value: portrait }, { label: "แนวนอน 16:9", value: landscape }, { label: "แบนเนอร์ยาว 3:1", value: banner }], hint: "ถ้าเลือกกรอบ ระบบจะใช้ตำแหน่งครอปที่ตั้งไว้ด้านบน" }
               - { name: link, label: ลิงก์เพิ่มเติม เช่น Behance (ไม่ใส่ก็ได้), widget: string, required: false }
 
       - name: process
@@ -109,7 +121,7 @@ collections:
             fields:
               - { name: title, label: ชื่อขั้นตอน, widget: string }
               - { name: body, label: คำอธิบาย, widget: text }
-              - { name: image, label: รูป, widget: image, choose_url: true, required: false }
+              - { name: image, label: รูป, widget: imagecrop, aspect: "16/10", required: false }
 
       - name: stats
         label: "5. ตัวเลขผลงาน (ไม่ใส่ = ซ่อน)"
@@ -142,10 +154,10 @@ collections:
             fields:
               - { name: title, label: ชื่อบริการ, widget: string }
               - { name: body, label: คำอธิบาย, widget: text }
-              - { name: image, label: รูป, widget: image, choose_url: true, required: false }
+              - { name: image, label: รูป, widget: imagecrop, aspect: "16/10", required: false }
           - { name: beforeAfterTitle, label: หัวข้อภาพเทียบก่อน/หลัง, widget: string, required: false }
-          - { name: beforeImage, label: ภาพก่อนแก้สี (ใส่ทั้งสองภาพจึงจะแสดง), widget: image, choose_url: true, required: false }
-          - { name: afterImage, label: ภาพหลังแก้สี, widget: image, choose_url: true, required: false }
+          - { name: beforeImage, label: ภาพก่อนแก้สี (ใส่ทั้งสองภาพจึงจะแสดง), widget: imagecrop, aspect: "16/9", required: false }
+          - { name: afterImage, label: ภาพหลังแก้สี, widget: imagecrop, aspect: "16/9", required: false }
 
       - name: testimonials
         label: "7. รีวิวจากลูกค้า (ไม่ใส่ = ซ่อน)"
@@ -163,7 +175,7 @@ collections:
               - { name: quote, label: ข้อความรีวิว (สั้นๆ 1-3 บรรทัด), widget: text }
               - { name: name, label: ชื่อลูกค้า, widget: string }
               - { name: role, label: ตำแหน่ง / บริษัท / ช่อง, widget: string, required: false }
-              - { name: photo, label: รูปลูกค้า, widget: image, choose_url: true, required: false }
+              - { name: photo, label: รูปลูกค้า, widget: imagecrop, aspect: "1/1", required: false }
 
       - name: pricing
         label: "8. แพ็กเกจราคา (ไม่ใส่ = ซ่อน)"

@@ -56,5 +56,48 @@
       "image": "https://picsum.photos/seed/ice-slide-6/800/800",
       "link": ""
     }
+  ],
+  "accent": "#ff3f1e",
+  "sections": [
+    {
+      "section": "เกี่ยวกับฉัน",
+      "visible": true
+    },
+    {
+      "section": "งานวิดีโอ",
+      "visible": true
+    },
+    {
+      "section": "งานกราฟิก",
+      "visible": true
+    },
+    {
+      "section": "ขั้นตอนการทำงาน",
+      "visible": true
+    },
+    {
+      "section": "ตัวเลขผลงาน",
+      "visible": true
+    },
+    {
+      "section": "บริการ",
+      "visible": true
+    },
+    {
+      "section": "รีวิวลูกค้า",
+      "visible": true
+    },
+    {
+      "section": "แพ็กเกจราคา",
+      "visible": true
+    },
+    {
+      "section": "ติดต่อ",
+      "visible": true
+    },
+    {
+      "section": "คำถามที่พบบ่อย",
+      "visible": true
+    }
   ]
 }

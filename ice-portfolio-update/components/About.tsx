@@ -7,10 +7,13 @@ import { SplitHeading } from "./SplitHeading";
 import { site } from "@/lib/work";
 
 // The page's single light color block: label left, statement right, showreel below.
-export function About() {
+export function About({ overlap = true }: { overlap?: boolean }) {
   if (!site.about) return null;
   return (
-    <section id="about" className="relative z-10 -mt-8 scroll-mt-20 rounded-t-[32px] bg-paper text-ink shadow-[0_-30px_80px_rgba(0,0,0,0.35)] lg:rounded-t-[48px]">
+    <section
+      id="about"
+      className={`relative z-10 scroll-mt-20 bg-paper text-ink ${overlap ? "-mt-8 rounded-t-[32px] shadow-[0_-30px_80px_rgba(0,0,0,0.35)] lg:rounded-t-[48px]" : ""}`}
+    >
       <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-10 px-4 py-24 md:px-8 md:py-32 lg:grid-cols-12 lg:gap-8">
         <Reveal className="lg:col-span-4">
           <Kicker tone="light">Hey, quick intro</Kicker>
