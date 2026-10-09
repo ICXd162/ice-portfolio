@@ -6,7 +6,8 @@ import { site } from "@/lib/work";
 
 const links = [
   { href: "#about", label: "About" },
-  { href: "#work", label: "Work" },
+  { href: "#video", label: "Video" },
+  { href: "#design", label: "Graphic design" },
   { href: "#process", label: "Process" },
   { href: "#services", label: "Services" },
   { href: "#contact", label: "Contact" },

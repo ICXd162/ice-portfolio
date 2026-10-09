@@ -2,7 +2,8 @@ import { Nav } from "@/components/Nav";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
-import { Works } from "@/components/Works";
+import { VideoWork } from "@/components/VideoWork";
+import { DesignWork } from "@/components/DesignWork";
 import { Process } from "@/components/Process";
 import { Stats } from "@/components/Stats";
 import { Services } from "@/components/Services";
@@ -26,7 +27,8 @@ export default function Page() {
           <About />
         </div>
         <div className="relative z-10 bg-ink">
-          <Works />
+          <VideoWork />
+          <DesignWork />
           <Process />
           <Stats />
           <Services />

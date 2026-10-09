@@ -1,0 +1,69 @@
+{
+  "heading": "Graphic design",
+  "intro": "Banners, thumbnails, social posts and print. Click any piece to see it full size.",
+  "items": [
+    {
+      "title": "Banner title 1",
+      "client": "Client name",
+      "type": "Banner",
+      "image": "https://picsum.photos/seed/ice-design-1/1500/500",
+      "link": ""
+    },
+    {
+      "title": "Thumbnail title 2",
+      "client": "Client name",
+      "type": "Thumbnail",
+      "image": "https://picsum.photos/seed/ice-design-2/1280/720",
+      "link": ""
+    },
+    {
+      "title": "Social post title 3",
+      "client": "Client name",
+      "type": "Social post",
+      "image": "https://picsum.photos/seed/ice-design-3/1080/1080",
+      "link": ""
+    },
+    {
+      "title": "Poster & print title 4",
+      "client": "Client name",
+      "type": "Poster & print",
+      "image": "https://picsum.photos/seed/ice-design-4/1000/1414",
+      "link": ""
+    },
+    {
+      "title": "Social post title 5",
+      "client": "Client name",
+      "type": "Social post",
+      "image": "https://picsum.photos/seed/ice-design-5/1080/1350",
+      "link": ""
+    },
+    {
+      "title": "Thumbnail title 6",
+      "client": "Client name",
+      "type": "Thumbnail",
+      "image": "https://picsum.photos/seed/ice-design-6/1280/720",
+      "link": ""
+    },
+    {
+      "title": "Banner title 7",
+      "client": "Client name",
+      "type": "Banner",
+      "image": "https://picsum.photos/seed/ice-design-7/1200/628",
+      "link": ""
+    },
+    {
+      "title": "Poster & print title 8",
+      "client": "Client name",
+      "type": "Poster & print",
+      "image": "https://picsum.photos/seed/ice-design-8/1000/1414",
+      "link": ""
+    },
+    {
+      "title": "Social post title 9",
+      "client": "Client name",
+      "type": "Social post",
+      "image": "https://picsum.photos/seed/ice-design-9/1080/1920",
+      "link": ""
+    }
+  ]
+}

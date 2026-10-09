@@ -1,7 +1,8 @@
 // Content comes from /content/*.json, which the admin panel (/admin) edits.
 // Sections whose list is empty in the admin are hidden on the page.
 import siteData from "@/content/site.json";
-import worksData from "@/content/works.json";
+import videosData from "@/content/videos.json";
+import designsData from "@/content/designs.json";
 import processData from "@/content/process.json";
 import servicesData from "@/content/services.json";
 import statsData from "@/content/stats.json";
@@ -45,32 +46,43 @@ export const site = {
   showreelUrl: text(siteData.showreelUrl),
 };
 
-export type Work = {
-  title: string;
-  category: string;
-  tags: string[];
-  cover: string;
-  orientation: "landscape" | "portrait";
-  videoUrl: string;
-};
-export const works = {
-  heading: text(worksData.heading),
-  intro: text(worksData.intro),
-  items: list<Partial<Work>>(worksData.items)
-    .map((w) => {
-      const id = youtubeId(w.videoUrl);
+export type VideoType = "Short form" | "Long form" | "Motion graphics";
+export const VIDEO_TYPES: VideoType[] = ["Short form", "Long form", "Motion graphics"];
+export type Video = { title: string; client: string; type: VideoType; videoUrl: string; youtube: string | null; cover: string };
+export const videos = {
+  heading: text(videosData.heading),
+  intro: text(videosData.intro),
+  items: list<Record<string, unknown>>(videosData.items)
+    .map((v) => {
+      const id = youtubeId(text(v.videoUrl));
+      const type = (VIDEO_TYPES as string[]).includes(text(v.type)) ? (text(v.type) as VideoType) : "Long form";
       return {
-        title: text(w.title),
-        category: text(w.category) || "Other",
-        tags: list<string>(w.tags).map(text).filter(Boolean),
-        cover: text(w.cover) || (id ? ytThumb(id) : ""),
-        orientation: w.orientation === "portrait" ? "portrait" : "landscape",
-        videoUrl: text(w.videoUrl),
-      } as Work;
+        title: text(v.title),
+        client: text(v.client),
+        type,
+        videoUrl: text(v.videoUrl),
+        youtube: id,
+        cover: text(v.cover) || (id ? ytThumb(id) : ""),
+      } as Video;
     })
-    .filter((w) => w.cover),
+    .filter((v) => v.cover),
 };
-export const workCategories = Array.from(new Set(works.items.map((w) => w.category)));
+
+export const DESIGN_TYPES = ["Banner", "Thumbnail", "Social post", "Poster & print", "Other"] as const;
+export type Design = { title: string; client: string; type: string; image: string; link: string };
+export const designs = {
+  heading: text(designsData.heading),
+  intro: text(designsData.intro),
+  items: list<Record<string, unknown>>(designsData.items)
+    .map((d) => ({
+      title: text(d.title),
+      client: text(d.client),
+      type: text(d.type) || "Other",
+      image: text(d.image),
+      link: text(d.link),
+    }))
+    .filter((d) => d.image) as Design[],
+};
 
 export type Step = { title: string; body: string; image?: string };
 export const workflow = {

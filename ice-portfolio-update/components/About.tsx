@@ -35,7 +35,7 @@ export function About() {
           {site.showreelImage && (
             <Reveal className="mt-14">
               <a
-                href={site.showreelUrl || "#work"}
+                href={site.showreelUrl || "#video"}
                 target={site.showreelUrl ? "_blank" : undefined}
                 rel="noopener noreferrer"
                 className="group relative block overflow-hidden rounded-[var(--radius-card)]"

@@ -56,28 +56,46 @@ collections:
           - { name: showreelImage, label: ภาพปก Showreel, widget: image, choose_url: true, required: false }
           - { name: showreelUrl, label: ลิงก์ Showreel (YouTube / Vimeo / Drive), widget: string, required: false }
 
-      - name: works
-        label: "2. ผลงาน"
-        file: ice-portfolio-update/content/works.json
+      - name: videos
+        label: "2. งานวิดีโอ"
+        file: ice-portfolio-update/content/videos.json
         fields:
           - { name: heading, label: หัวข้อส่วน, widget: string }
           - { name: intro, label: คำอธิบาย, widget: text, required: false }
           - name: items
-            label: ผลงาน ลากเพื่อเรียงลำดับ (8 ชิ้นแรกแสดงก่อน ที่เหลือกด Show more)
+            label: วิดีโอ ลากเพื่อเรียงลำดับ (แยกแท็บตามประเภทให้อัตโนมัติ)
+            label_singular: วิดีโอ
+            widget: list
+            collapsed: true
+            summary: "{{fields.type}} | {{fields.title}}"
+            fields:
+              - { name: title, label: ชื่องาน, widget: string }
+              - { name: client, label: ลูกค้า / ช่อง, widget: string, required: false }
+              - { name: type, label: ประเภท, widget: select, default: "Long form", options: ["Short form", "Long form", "Motion graphics"], hint: "Short form แสดงเป็นกรอบแนวตั้ง 9:16 ที่เหลือเป็นแนวนอน 16:9" }
+              - { name: videoUrl, label: ลิงก์วิดีโอ, widget: string, required: false, hint: "ลิงก์ YouTube (รวม Shorts) จะเล่นในหน้าเว็บได้เลยและดึงภาพปกให้เอง ลิงก์อื่นเช่น TikTok / Drive จะเปิดแท็บใหม่" }
+              - { name: cover, label: ภาพปก (ไม่ใส่ได้ถ้าเป็น YouTube), widget: image, choose_url: true, required: false }
+
+      - name: designs
+        label: "3. งานกราฟิก"
+        file: ice-portfolio-update/content/designs.json
+        fields:
+          - { name: heading, label: หัวข้อส่วน, widget: string }
+          - { name: intro, label: คำอธิบาย, widget: text, required: false }
+          - name: items
+            label: ผลงาน ลากเพื่อเรียงลำดับ
             label_singular: ผลงาน
             widget: list
             collapsed: true
-            summary: "{{fields.category}} | {{fields.title}}"
+            summary: "{{fields.type}} | {{fields.title}}"
             fields:
-              - { name: title, label: ชื่อผลงาน, widget: string }
-              - { name: category, label: หมวด (ใช้เป็นปุ่มกรอง), widget: select, options: ["Short form", "Long form", "Motion graphics", "Graphic & banner", "Color grading", "Shooting"] }
-              - { name: tags, label: แท็กเพิ่มเติม เช่น ชื่อลูกค้า (คั่นด้วยจุลภาค), widget: list, required: false }
-              - { name: videoUrl, label: ลิงก์วิดีโอ (YouTube / TikTok / Reels / Drive), widget: string, required: false, hint: "ถ้าเป็น YouTube และไม่ใส่ภาพปก ระบบจะดึงภาพปกให้เอง" }
-              - { name: cover, label: ภาพปก, widget: image, choose_url: true, required: false }
-              - { name: orientation, label: สัดส่วนภาพปก, widget: select, default: landscape, options: [{ label: "แนวนอน 16:9", value: landscape }, { label: "แนวตั้ง 9:16 (Shorts / Reels)", value: portrait }] }
+              - { name: title, label: ชื่องาน, widget: string }
+              - { name: client, label: ลูกค้า, widget: string, required: false }
+              - { name: type, label: ประเภท (ใช้เป็นปุ่มกรอง), widget: select, default: "Banner", options: ["Banner", "Thumbnail", "Social post", "Poster & print", "Other"] }
+              - { name: image, label: ภาพผลงาน (ขนาดเท่าจริง ระบบจัดสัดส่วนให้เอง), widget: image, choose_url: true }
+              - { name: link, label: ลิงก์เพิ่มเติม เช่น Behance (ไม่ใส่ก็ได้), widget: string, required: false }
 
       - name: process
-        label: "3. ขั้นตอนการทำงาน"
+        label: "4. ขั้นตอนการทำงาน"
         file: ice-portfolio-update/content/process.json
         fields:
           - { name: heading, label: หัวข้อส่วน, widget: string }
@@ -94,7 +112,7 @@ collections:
               - { name: image, label: รูป, widget: image, choose_url: true, required: false }
 
       - name: stats
-        label: "4. ตัวเลขผลงาน (ไม่ใส่ = ซ่อน)"
+        label: "5. ตัวเลขผลงาน (ไม่ใส่ = ซ่อน)"
         file: ice-portfolio-update/content/stats.json
         fields:
           - { name: heading, label: หัวข้อเล็ก, widget: string, required: false }
@@ -110,7 +128,7 @@ collections:
               - { name: label, label: คำอธิบาย เช่น โปรเจกต์ที่ทำ, widget: string }
 
       - name: services
-        label: "5. บริการ"
+        label: "6. บริการ"
         file: ice-portfolio-update/content/services.json
         fields:
           - { name: heading, label: หัวข้อส่วน, widget: string }
@@ -130,7 +148,7 @@ collections:
           - { name: afterImage, label: ภาพหลังแก้สี, widget: image, choose_url: true, required: false }
 
       - name: testimonials
-        label: "6. รีวิวจากลูกค้า (ไม่ใส่ = ซ่อน)"
+        label: "7. รีวิวจากลูกค้า (ไม่ใส่ = ซ่อน)"
         file: ice-portfolio-update/content/testimonials.json
         fields:
           - { name: heading, label: หัวข้อส่วน, widget: string }
@@ -148,7 +166,7 @@ collections:
               - { name: photo, label: รูปลูกค้า, widget: image, choose_url: true, required: false }
 
       - name: pricing
-        label: "7. แพ็กเกจราคา (ไม่ใส่ = ซ่อน)"
+        label: "8. แพ็กเกจราคา (ไม่ใส่ = ซ่อน)"
         file: ice-portfolio-update/content/pricing.json
         fields:
           - { name: heading, label: หัวข้อส่วน, widget: string }
@@ -169,7 +187,7 @@ collections:
               - { name: highlighted, label: เน้นเป็นแพ็กเกจแนะนำ (การ์ดสีส้ม), widget: boolean, default: false }
 
       - name: contact
-        label: "8. ติดต่อ"
+        label: "9. ติดต่อ"
         file: ice-portfolio-update/content/contact.json
         fields:
           - { name: heading, label: หัวข้อ, widget: string }
@@ -181,7 +199,7 @@ collections:
           - { name: facebook, label: ลิงก์ Facebook, widget: string, required: false }
 
       - name: faq
-        label: "9. คำถามที่พบบ่อย (ไม่ใส่ = ซ่อน)"
+        label: "10. คำถามที่พบบ่อย (ไม่ใส่ = ซ่อน)"
         file: ice-portfolio-update/content/faq.json
         fields:
           - { name: heading, label: หัวข้อส่วน, widget: string }

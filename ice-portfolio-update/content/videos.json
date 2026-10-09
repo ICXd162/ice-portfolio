@@ -1,0 +1,83 @@
+{
+  "heading": "Video work",
+  "intro": "Short form, long form and motion graphics. Pick a type, then press play.",
+  "items": [
+    {
+      "title": "Short form title 1",
+      "client": "Client name",
+      "type": "Short form",
+      "videoUrl": "",
+      "cover": "https://picsum.photos/seed/ice-short-1/540/960"
+    },
+    {
+      "title": "Short form title 2",
+      "client": "Client name",
+      "type": "Short form",
+      "videoUrl": "",
+      "cover": "https://picsum.photos/seed/ice-short-2/540/960"
+    },
+    {
+      "title": "Short form title 3",
+      "client": "Client name",
+      "type": "Short form",
+      "videoUrl": "",
+      "cover": "https://picsum.photos/seed/ice-short-3/540/960"
+    },
+    {
+      "title": "Short form title 4",
+      "client": "Client name",
+      "type": "Short form",
+      "videoUrl": "",
+      "cover": "https://picsum.photos/seed/ice-short-4/540/960"
+    },
+    {
+      "title": "Long form title 1",
+      "client": "Channel or client",
+      "type": "Long form",
+      "videoUrl": "",
+      "cover": "https://picsum.photos/seed/ice-long-1/1280/720"
+    },
+    {
+      "title": "Long form title 2",
+      "client": "Channel or client",
+      "type": "Long form",
+      "videoUrl": "",
+      "cover": "https://picsum.photos/seed/ice-long-2/1280/720"
+    },
+    {
+      "title": "Long form title 3",
+      "client": "Channel or client",
+      "type": "Long form",
+      "videoUrl": "",
+      "cover": "https://picsum.photos/seed/ice-long-3/1280/720"
+    },
+    {
+      "title": "Long form title 4",
+      "client": "Channel or client",
+      "type": "Long form",
+      "videoUrl": "",
+      "cover": "https://picsum.photos/seed/ice-long-4/1280/720"
+    },
+    {
+      "title": "Motion graphics title 1",
+      "client": "Client name",
+      "type": "Motion graphics",
+      "videoUrl": "",
+      "cover": "https://picsum.photos/seed/ice-motion-1/1280/720"
+    },
+    {
+      "title": "Motion graphics title 2",
+      "client": "Client name",
+      "type": "Motion graphics",
+      "videoUrl": "",
+      "cover": "https://picsum.photos/seed/ice-motion-2/1280/720"
+    },
+    {
+      "title": "Motion graphics title 3",
+      "client": "Client name",
+      "type": "Motion graphics",
+      "videoUrl": "",
+      "cover": "https://picsum.photos/seed/ice-motion-3/1280/720"
+    }
+  ]
+}

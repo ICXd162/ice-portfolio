@@ -133,7 +133,7 @@ export function Hero() {
             <Button href="#contact" variant="accent" className="ring-1 ring-white/20">
               Book a project
             </Button>
-            <Button href="#work" variant="light">
+            <Button href="#video" variant="light">
               View work
             </Button>
           </motion.div>
