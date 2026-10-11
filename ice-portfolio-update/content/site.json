@@ -76,27 +76,43 @@
   "showreelUrl": "/uploads/videos/lf-finance-explainer.mp4",
   "heroSlides": [
     {
-      "image": "/uploads/intro-port.mp4#x=6&y=65&z=1",
+      "image": "/uploads/videos/mg-nihon-sankei.jpg",
       "link": ""
     },
     {
-      "image": "/uploads/long-port.mp4#x=90&y=0&z=1.45",
+      "image": "/uploads/videos/mg-tohoku.jpg",
       "link": ""
     },
     {
-      "image": "/uploads/motion-port_1.mp4#x=89&y=53&z=1.65",
+      "image": "/uploads/videos/mg-ginzan-onsen.jpg",
       "link": ""
     },
     {
-      "image": "/uploads/short-port1-1-.mp4#x=8&y=67&z=1",
+      "image": "/uploads/videos/mg-snow-monsters.jpg",
       "link": ""
     },
     {
-      "image": "/uploads/long-port.mp4#x=19&y=71&z=1.8",
+      "image": "/uploads/videos/mg-qingdao.jpg",
       "link": ""
     },
     {
-      "image": "/uploads/motion-port_1.mp4#x=7&y=58&z=1.05",
+      "image": "/uploads/videos/mg-cyberpunk-china.jpg",
+      "link": ""
+    },
+    {
+      "image": "/uploads/videos/mg-dragon-jars.jpg",
+      "link": ""
+    },
+    {
+      "image": "/uploads/videos/mg-khao-wang.jpg",
+      "link": ""
+    },
+    {
+      "image": "/uploads/videos/mg-naga-cave.jpg",
+      "link": ""
+    },
+    {
+      "image": "/uploads/videos/mg-taiwan-moon-blocks.jpg",
       "link": ""
     }
   ]
