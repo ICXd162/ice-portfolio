@@ -3,32 +3,364 @@
   "intro": "Short form, long form and motion graphics. Pick a type, then press play.",
   "items": [
     {
-      "title": "Short form title 1",
-      "client": "Client name",
+      "title": "Brooklyn 99",
+      "client": "",
       "type": "Short form",
+      "group": "Highlight",
+      "file": "/uploads/videos/hilight-1.mp4",
       "videoUrl": "",
-      "cover": "https://picsum.photos/seed/ice-short-1/540/960"
+      "cover": "/uploads/videos/hilight-1.jpg",
+      "featured": true
     },
     {
-      "title": "Short form title 2",
-      "client": "Client name",
+      "title": "Cafe",
+      "client": "",
       "type": "Short form",
+      "group": "Highlight",
+      "file": "/uploads/videos/hilight-2.mp4",
       "videoUrl": "",
-      "cover": "https://picsum.photos/seed/ice-short-2/540/960"
+      "cover": "/uploads/videos/hilight-2.jpg",
+      "featured": true
     },
     {
-      "title": "Short form title 3",
-      "client": "Client name",
+      "title": "Discovery Course",
+      "client": "",
       "type": "Short form",
+      "group": "Highlight",
+      "file": "/uploads/videos/hilight-3.mp4",
       "videoUrl": "",
-      "cover": "https://picsum.photos/seed/ice-short-3/540/960"
+      "cover": "/uploads/videos/hilight-3.jpg",
+      "featured": true
     },
     {
-      "title": "Short form title 4",
-      "client": "Client name",
+      "title": "Interview",
+      "client": "",
       "type": "Short form",
+      "group": "Highlight",
+      "file": "/uploads/videos/hilight-4.mp4",
       "videoUrl": "",
-      "cover": "https://picsum.photos/seed/ice-short-4/540/960"
+      "cover": "/uploads/videos/hilight-4.jpg",
+      "featured": true
+    },
+    {
+      "title": "Range 101",
+      "client": "",
+      "type": "Short form",
+      "group": "Highlight",
+      "file": "/uploads/videos/hilight-5.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/hilight-5.jpg",
+      "featured": true
+    },
+    {
+      "title": "AOT x ROV",
+      "client": "",
+      "type": "Short form",
+      "group": "Games",
+      "file": "/uploads/videos/games-1.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/games-1.jpg",
+      "featured": false
+    },
+    {
+      "title": "Free Fire: อยากถามอะไรคนถัดไป",
+      "client": "",
+      "type": "Short form",
+      "group": "Games",
+      "file": "/uploads/videos/games-2.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/games-2.jpg",
+      "featured": false
+    },
+    {
+      "title": "Free Fire Highlight",
+      "client": "",
+      "type": "Short form",
+      "group": "Games",
+      "file": "/uploads/videos/games-3.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/games-3.jpg",
+      "featured": false
+    },
+    {
+      "title": "Free Fire: ไอเทมที่อยากได้จากแอร์ดรอปมากที่สุด",
+      "client": "",
+      "type": "Short form",
+      "group": "Games",
+      "file": "/uploads/videos/games-4.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/games-4.jpg",
+      "featured": false
+    },
+    {
+      "title": "MLBB",
+      "client": "",
+      "type": "Short form",
+      "group": "Games",
+      "file": "/uploads/videos/games-5.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/games-5.jpg",
+      "featured": false
+    },
+    {
+      "title": "PUBG Mobile Highlight 1",
+      "client": "",
+      "type": "Short form",
+      "group": "Games",
+      "file": "/uploads/videos/games-6.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/games-6.jpg",
+      "featured": false
+    },
+    {
+      "title": "PUBG Mobile Highlight 2",
+      "client": "",
+      "type": "Short form",
+      "group": "Games",
+      "file": "/uploads/videos/games-7.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/games-7.jpg",
+      "featured": false
+    },
+    {
+      "title": "ROV In-game Highlight",
+      "client": "",
+      "type": "Short form",
+      "group": "Games",
+      "file": "/uploads/videos/games-8.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/games-8.jpg",
+      "featured": false
+    },
+    {
+      "title": "ROV Highlight",
+      "client": "",
+      "type": "Short form",
+      "group": "Games",
+      "file": "/uploads/videos/games-9.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/games-9.jpg",
+      "featured": false
+    },
+    {
+      "title": "ROV: เพลงประจำตัว",
+      "client": "",
+      "type": "Short form",
+      "group": "Games",
+      "file": "/uploads/videos/games-10.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/games-10.jpg",
+      "featured": false
+    },
+    {
+      "title": "What's in my bag",
+      "client": "",
+      "type": "Short form",
+      "group": "Games",
+      "file": "/uploads/videos/games-11.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/games-11.jpg",
+      "featured": false
+    },
+    {
+      "title": "เมื่อบอกทีมว่าเชื่อผม",
+      "client": "",
+      "type": "Short form",
+      "group": "Games",
+      "file": "/uploads/videos/games-12.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/games-12.jpg",
+      "featured": false
+    },
+    {
+      "title": "ใครคือนักแข่งตัวจริง",
+      "client": "",
+      "type": "Short form",
+      "group": "Games",
+      "file": "/uploads/videos/games-13.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/games-13.jpg",
+      "featured": false
+    },
+    {
+      "title": "เงินสกุลไหนควรแลกในไทย",
+      "client": "",
+      "type": "Short form",
+      "group": "Talking head",
+      "file": "/uploads/videos/talk-1.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/talk-1.jpg",
+      "featured": false
+    },
+    {
+      "title": "ขอวีซ่าเชงเก้นยากไหม",
+      "client": "",
+      "type": "Short form",
+      "group": "Talking head",
+      "file": "/uploads/videos/talk-2.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/talk-2.jpg",
+      "featured": false
+    },
+    {
+      "title": "อยากอยู่นานกว่าฟรีวีซ่า ทำยังไงได้บ้าง",
+      "client": "",
+      "type": "Short form",
+      "group": "Talking head",
+      "file": "/uploads/videos/talk-3.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/talk-3.jpg",
+      "featured": false
+    },
+    {
+      "title": "โดนปฏิเสธวีซ่า ทำยังไงต่อดี",
+      "client": "",
+      "type": "Short form",
+      "group": "Talking head",
+      "file": "/uploads/videos/talk-4.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/talk-4.jpg",
+      "featured": false
+    },
+    {
+      "title": "มือใหม่เที่ยวยุโรปพลาดเรื่องอะไรบ่อยที่สุด",
+      "client": "",
+      "type": "Short form",
+      "group": "Talking head",
+      "file": "/uploads/videos/talk-5.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/talk-5.jpg",
+      "featured": false
+    },
+    {
+      "title": "ทำไมบางคนอ่านแชทแล้วตอบในหัว แต่ไม่ตอบจริง",
+      "client": "",
+      "type": "Short form",
+      "group": "Talking head",
+      "file": "/uploads/videos/talk-6.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/talk-6.jpg",
+      "featured": false
+    },
+    {
+      "title": "ทำไมคนรุ่นใหม่ถึงกล้าพูดมากขึ้น",
+      "client": "",
+      "type": "Short form",
+      "group": "Talking head",
+      "file": "/uploads/videos/talk-7.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/talk-7.jpg",
+      "featured": false
+    },
+    {
+      "title": "ทำไมเราถึงรู้สึกว่าเวลาผ่านเร็วขึ้นทุกปี",
+      "client": "",
+      "type": "Short form",
+      "group": "Talking head",
+      "file": "/uploads/videos/talk-8.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/talk-8.jpg",
+      "featured": false
+    },
+    {
+      "title": "เหตุผลที่บางคนจำคำพูดแย่ ๆ ได้นานกว่าคำชม",
+      "client": "",
+      "type": "Short form",
+      "group": "Talking head",
+      "file": "/uploads/videos/talk-9.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/talk-9.jpg",
+      "featured": false
+    },
+    {
+      "title": "Grand Tour of Thailand",
+      "client": "",
+      "type": "Short form",
+      "group": "Vlog & travel",
+      "file": "/uploads/videos/vlog-1.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/vlog-1.jpg",
+      "featured": false
+    },
+    {
+      "title": "Here We Go: วิธีกินน้ำดอกบัวให้อร่อยที่สุด",
+      "client": "",
+      "type": "Short form",
+      "group": "Vlog & travel",
+      "file": "/uploads/videos/vlog-2.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/vlog-2.jpg",
+      "featured": false
+    },
+    {
+      "title": "Mickey Japan Recap",
+      "client": "",
+      "type": "Short form",
+      "group": "Vlog & travel",
+      "file": "/uploads/videos/vlog-3.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/vlog-3.jpg",
+      "featured": false
+    },
+    {
+      "title": "My name is MiNNi€",
+      "client": "",
+      "type": "Short form",
+      "group": "Vlog & travel",
+      "file": "/uploads/videos/vlog-4.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/vlog-4.jpg",
+      "featured": false
+    },
+    {
+      "title": "UB XTWB with Minnie",
+      "client": "",
+      "type": "Short form",
+      "group": "Vlog & travel",
+      "file": "/uploads/videos/vlog-5.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/vlog-5.jpg",
+      "featured": false
+    },
+    {
+      "title": "ธารน้ำร้อนบ่อคลึง",
+      "client": "",
+      "type": "Short form",
+      "group": "Vlog & travel",
+      "file": "/uploads/videos/vlog-6.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/vlog-6.jpg",
+      "featured": false
+    },
+    {
+      "title": "Hot-swap คืออะไร ทำไมควรมี",
+      "client": "",
+      "type": "Short form",
+      "group": "Knowledge",
+      "file": "/uploads/videos/knowledge-1.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/knowledge-1.jpg",
+      "featured": false
+    },
+    {
+      "title": "Power Glove",
+      "client": "",
+      "type": "Short form",
+      "group": "Knowledge",
+      "file": "/uploads/videos/knowledge-2.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/knowledge-2.jpg",
+      "featured": false
+    },
+    {
+      "title": "วิธีแก้ปัญหาอินเทอร์เน็ต",
+      "client": "",
+      "type": "Short form",
+      "group": "Knowledge",
+      "file": "/uploads/videos/knowledge-3.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/knowledge-3.jpg",
+      "featured": false
     },
     {
       "title": "Long form title 1",

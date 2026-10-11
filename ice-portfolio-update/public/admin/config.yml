@@ -77,14 +77,16 @@ collections:
             label_singular: วิดีโอ
             widget: list
             collapsed: true
-            summary: "{{fields.type}} | {{fields.title}}"
+            summary: "{{fields.type}} | {{fields.group}} | {{fields.title}}"
             fields:
               - { name: title, label: ชื่องาน, widget: string }
               - { name: client, label: ลูกค้า / ช่อง, widget: string, required: false }
               - { name: type, label: ประเภท, widget: select, default: "Long form", options: ["Short form", "Long form", "Motion graphics"], hint: "Short form แสดงเป็นกรอบแนวตั้ง 9:16 ที่เหลือเป็นแนวนอน 16:9" }
+              - { name: group, label: หมวดย่อย (ปุ่มกรองใน Short form), widget: string, required: false, hint: "เช่น Games, Talking head, Vlog & travel, Knowledge — ใช้ชื่อเดียวกันจะอยู่หมวดเดียวกัน" }
+              - { name: file, label: ไฟล์วิดีโอ (อัปโหลดขึ้นเว็บ), widget: file, required: false, media_folder: /ice-portfolio-update/public/uploads/videos, public_folder: /uploads/videos, hint: "ไฟล์ .mp4 ไม่เกิน 25MB (แนะนำ 720p) เล่นในหน้าเว็บได้เลย ถ้าใส่ไฟล์แล้วไม่ต้องใส่ลิงก์" }
               - { name: videoUrl, label: ลิงก์วิดีโอ, widget: string, required: false, hint: "ลิงก์ YouTube (รวม Shorts) จะเล่นในหน้าเว็บได้เลยและดึงภาพปกให้เอง ลิงก์อื่นเช่น TikTok / Drive จะเปิดแท็บใหม่" }
               - { name: cover, label: ภาพปก (ไม่ใส่ได้ถ้าเป็น YouTube), widget: imagecrop, aspect: "16/9", required: false }
-              - { name: featured, label: แสดงเป็นการ์ดใหญ่ (เด่นกว่าชิ้นอื่น), widget: boolean, default: false, required: false }
+              - { name: featured, label: "ไฮไลต์ (Short form: ขึ้นแถว Highlights บนสุด / แบบอื่น: การ์ดใหญ่)", widget: boolean, default: false, required: false }
 
       - name: designs
         label: "3. งานกราฟิก"

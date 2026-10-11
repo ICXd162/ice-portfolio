@@ -86,13 +86,27 @@ export const site = {
 
 export type VideoType = "Short form" | "Long form" | "Motion graphics";
 export const VIDEO_TYPES: VideoType[] = ["Short form", "Long form", "Motion graphics"];
-export type Video = { title: string; client: string; type: VideoType; videoUrl: string; youtube: string | null; cover: string; featured: boolean };
+export type Video = {
+  title: string;
+  client: string;
+  type: VideoType;
+  videoUrl: string;
+  youtube: string | null;
+  /** A video file hosted on this site (uploaded in the admin), played in the page's own player. */
+  file: string | null;
+  /** Sub-category shown as a filter inside Short form, e.g. Games, Vlog & travel. */
+  group: string;
+  cover: string;
+  featured: boolean;
+};
+const VIDEO_FILE = /\.(mp4|webm|mov|m4v)(\?.*)?$/i;
 export const videos = {
   heading: text(videosData.heading),
   intro: text(videosData.intro),
   items: list<Record<string, unknown>>(videosData.items)
     .map((v) => {
       const id = youtubeId(text(v.videoUrl));
+      const file = text(v.file) || (VIDEO_FILE.test(text(v.videoUrl)) ? text(v.videoUrl) : "");
       const type = (VIDEO_TYPES as string[]).includes(text(v.type)) ? (text(v.type) as VideoType) : "Long form";
       return {
         title: text(v.title),
@@ -100,6 +114,8 @@ export const videos = {
         type,
         videoUrl: text(v.videoUrl),
         youtube: id,
+        file: file || null,
+        group: text(v.group),
         cover: text(v.cover) || (id ? ytThumb(id) : ""),
         featured: v.featured === true,
       } as Video;
