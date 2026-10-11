@@ -59,11 +59,11 @@ export function Hero() {
           "radial-gradient(90% 85% at 55% 30%, #ff5a2e 0%, #e8401f 28%, #b42a12 52%, #6e1709 76%, #3a0d06 100%)",
       }}
     >
-      {/* Work slideshow, behind the portrait */}
+      {/* Work slideshow in its own column to the right of the portrait (no overlap at any width) */}
       {slides.length > 0 && (
         <motion.div
           style={{ transform: p(slidesT) as never }}
-          className="marquee-pause fade-y absolute top-[40%] right-3 bottom-20 z-10 w-[42vw] overflow-hidden sm:right-[8%] sm:w-[34vw] lg:top-0 lg:bottom-0 lg:right-[clamp(2rem,11vw,13rem)] lg:w-[clamp(220px,24vw,380px)]"
+          className="marquee-pause fade-y absolute top-[44%] right-3 bottom-24 z-10 w-[30vw] overflow-hidden sm:top-[36%] sm:right-[4%] sm:w-[28vw] lg:top-0 lg:bottom-0 lg:right-[clamp(1.5rem,6vw,8rem)] lg:w-[clamp(200px,20vw,340px)]"
           aria-label="Selected work"
         >
           <motion.ul
@@ -95,11 +95,11 @@ export function Hero() {
         </motion.div>
       )}
 
-      {/* Portrait, in front of the slideshow */}
+      {/* Portrait, in its own column; the image is positioned so the subject stays inside it */}
       {site.heroImage && (
         <motion.div
           style={{ transform: p(portraitT) as never }}
-          className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[64%] origin-bottom sm:inset-x-[4%] lg:inset-x-auto lg:left-[20%] lg:h-full lg:w-[58%]"
+          className="pointer-events-none absolute bottom-0 left-0 z-20 h-[62%] w-[66%] origin-bottom sm:left-[2%] sm:w-[64%] lg:left-[22%] lg:h-full lg:w-[52%]"
         >
           <motion.div
             initial={reduce ? false : { opacity: 0, transform: "scale(1.04)" }}
@@ -108,7 +108,7 @@ export function Hero() {
             className="portrait-blend h-full w-full"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={parseCrop(site.heroImage).url} alt={`Portrait of ${site.name}`} fetchPriority="high" style={cropStyle(parseCrop(site.heroImage))} className="h-full w-full object-cover object-top" />
+            <img src={parseCrop(site.heroImage).url} alt={`Portrait of ${site.name}`} fetchPriority="high" style={cropStyle(parseCrop(site.heroImage))} className="h-full w-full object-cover object-[32%_top] lg:object-[20%_top]" />
           </motion.div>
         </motion.div>
       )}

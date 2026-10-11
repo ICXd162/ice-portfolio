@@ -234,7 +234,7 @@
   function img(getAsset, path, cls, extraStyle) {
     var c = parseCrop(path);
     if (!c.url) return null;
-    return h("img", { src: assetUrl(getAsset, c.url), className: cls, style: Object.assign({}, cropStyle(c), extraStyle || {}), alt: "" });
+    return h("img", { src: assetUrl(getAsset, c.url), className: cls, style: Object.assign({}, extraStyle || {}, cropStyle(c) || {}), alt: "" });
   }
   function shell(children) {
     return h("div", { className: "bg-ink text-paper", style: { minHeight: "100vh", fontFamily: "system-ui, sans-serif" } }, children);
@@ -246,35 +246,54 @@
     );
   }
 
+  // Hero preview: rendered at real desktop size (1440x800, same geometry as the site) and scaled to fit the pane,
+  // so what you see here matches the live page instead of a squeezed mobile mock.
+  var HERO_W = 1440, HERO_H = 800;
   var SitePreview = createClass({
+    getInitialState: function () { return { scale: 0.3 }; },
+    componentDidMount: function () {
+      var self = this;
+      this.fit = function () { if (self.box) { var s = self.box.offsetWidth / HERO_W; if (Math.abs(s - self.state.scale) > 0.001) self.setState({ scale: s }); } };
+      this.fit();
+      this.win = this.box && this.box.ownerDocument.defaultView;
+      if (this.win) this.win.addEventListener("resize", this.fit);
+    },
+    componentDidUpdate: function () { if (this.fit) this.fit(); },
+    componentWillUnmount: function () { if (this.win) this.win.removeEventListener("resize", this.fit); },
     render: function () {
+      var self = this;
       var d = toJS(this.props.entry.getIn(["data"])) || {};
       var ga = this.props.getAsset;
       var slides = (d.heroSlides || []).filter(function (s) { return s && s.image; });
       var accent = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(d.accent || "") ? d.accent : "#ff3f1e";
+      var sc = this.state.scale;
       return h("div", { style: { ["--color-accent"]: accent } },
+        h("div", { ref: function (el) { self.box = el; }, style: { position: "relative", width: "100%", height: Math.round(HERO_H * sc) + "px", overflow: "hidden" } },
         h("section", {
-          className: "relative isolate overflow-hidden",
-          style: { minHeight: "640px", background: "radial-gradient(90% 85% at 55% 30%, #ff5a2e 0%, #e8401f 28%, #b42a12 52%, #6e1709 76%, #3a0d06 100%)" },
+          className: "isolate overflow-hidden",
+          style: { position: "absolute", left: 0, top: 0, width: HERO_W + "px", height: HERO_H + "px", transform: "scale(" + sc + ")", transformOrigin: "top left",
+                   background: "radial-gradient(90% 85% at 55% 30%, #ff5a2e 0%, #e8401f 28%, #b42a12 52%, #6e1709 76%, #3a0d06 100%)" },
         },
-          slides.length ? h("div", { className: "fade-y absolute top-0 bottom-0 z-10 overflow-hidden", style: { right: "8%", width: "26%" } },
-            h("div", { className: "flex flex-col gap-3" }, slides.slice(0, 4).map(function (s, i) {
+          // slideshow column: right 6vw, width 20vw at 1440 (matches the site)
+          slides.length ? h("div", { className: "fade-y absolute z-10 overflow-hidden", style: { top: 0, bottom: 0, right: "86px", width: "288px" } },
+            h("div", { className: "flex flex-col", style: { gap: "20px" } }, slides.slice(0, 5).map(function (s, i) {
               return h("div", { key: i }, img(ga, s.image, "aspect-square w-full object-cover"));
             }))
           ) : null,
-          d.heroImage ? h("div", { className: "portrait-blend absolute z-20", style: { left: "20%", width: "58%", top: 0, bottom: 0 } },
-            img(ga, d.heroImage, "h-full w-full object-cover object-top")
+          // portrait column: left 22%, width 52%
+          d.heroImage ? h("div", { className: "portrait-blend absolute z-20", style: { left: "22%", width: "52%", top: 0, bottom: 0 } },
+            img(ga, d.heroImage, "h-full w-full object-cover", { objectPosition: "20% top" })
           ) : null,
-          h("div", { className: "relative z-40", style: { padding: "180px 40px 40px", maxWidth: "36rem" } },
-            h("p", { className: "text-[1.9rem] leading-none font-medium tracking-[-0.04em] text-[#fc826c] uppercase" }, d.name || ""),
-            h("h1", { className: "mt-5 text-[2.6rem] leading-[1.15] font-bold tracking-[-0.04em] text-white" }, d.headline || ""),
+          h("div", { className: "relative z-40", style: { height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 72px", maxWidth: "640px" } },
+            h("p", { className: "font-medium uppercase", style: { fontSize: "2.625rem", lineHeight: 1, letterSpacing: "-0.04em", color: "#fc826c" } }, d.name || ""),
+            h("h1", { className: "font-bold text-white", style: { marginTop: "20px", maxWidth: "13ch", fontSize: "3.5rem", lineHeight: 1.4, letterSpacing: "-0.04em" } }, d.headline || ""),
             d.subtext ? h("p", { className: "mt-4 text-lg leading-relaxed text-white/80" }, d.subtext) : null,
             h("div", { className: "mt-8 flex flex-wrap gap-3" },
               h("span", { className: "inline-flex h-12 items-center rounded-full bg-accent px-6 text-[15px] font-medium text-white" }, "Book a project"),
               h("span", { className: "inline-flex h-12 items-center rounded-full bg-paper px-6 text-[15px] font-medium text-ink" }, "View work")
             )
           )
-        ),
+        )),
         h("section", { className: "bg-paper text-ink", style: { padding: "64px 40px" } },
           h("h2", { className: "text-4xl font-medium tracking-[-0.04em] text-accent" }, d.aboutLabel || ""),
           h("p", { className: "mt-6 max-w-[34ch] text-[1.75rem] leading-[1.3] font-medium tracking-[-0.025em]" }, d.about || ""),
