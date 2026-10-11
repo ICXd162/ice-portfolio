@@ -74,12 +74,11 @@ body {
   -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 90%, transparent);
   mask-image: linear-gradient(to right, transparent, #000 8%, #000 90%, transparent);
 }
-/* Blends any portrait (cutout PNG or regular photo) into the hero gradient. */
+/* Portrait is a transparent cutout, so only the bottom fades into the page.
+   No side fade: the subject stays fully opaque and the slideshow behind it never shows through the face. */
 .portrait-blend {
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 16%, #000 84%, transparent 100%), linear-gradient(to bottom, #000 72%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to right, transparent 0%, #000 16%, #000 84%, transparent 100%), linear-gradient(to bottom, #000 72%, transparent 100%);
-  mask-composite: intersect;
+  -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
 }
 
 @media (prefers-reduced-motion: reduce) {
