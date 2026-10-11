@@ -394,11 +394,71 @@
     },
     {
       "title": "ตะลุยโอซาก้า เมืองที่สายกินหลงรัก! | Osaka",
-      "client": "",
+      "client": "Here We Go",
       "type": "Long form",
       "group": "",
       "file": "",
       "videoUrl": "https://www.youtube.com/watch?v=rugQWwnHwP0",
+      "cover": "",
+      "featured": false
+    },
+    {
+      "title": "เดินป่าหน้าฝน เที่ยวนครนายก 3วัน 2คืน | Nakhon Nayok",
+      "client": "Here We Go",
+      "type": "Long form",
+      "group": "",
+      "file": "",
+      "videoUrl": "https://www.youtube.com/watch?v=zoaGf01uH5w",
+      "cover": "",
+      "featured": false
+    },
+    {
+      "title": "เพชรบุรี เที่ยวในเมือง 3 วัน 2 คืน | Phetchaburi",
+      "client": "Here We Go",
+      "type": "Long form",
+      "group": "",
+      "file": "",
+      "videoUrl": "https://www.youtube.com/watch?v=TuIX1wyBaxA",
+      "cover": "",
+      "featured": false
+    },
+    {
+      "title": "ฮอยอัน บานาฮิลล์ เมืองเก่าและวิวภูเขา | เวียดนาม",
+      "client": "Here We Go",
+      "type": "Long form",
+      "group": "",
+      "file": "",
+      "videoUrl": "https://www.youtube.com/watch?v=_W5qwHMBpYg",
+      "cover": "",
+      "featured": false
+    },
+    {
+      "title": "ทริปในฝันที่ 'วังเวียง' นั่งบอลลูนชมวิวสุดอลังการ | ลาว",
+      "client": "Here We Go",
+      "type": "Long form",
+      "group": "",
+      "file": "",
+      "videoUrl": "https://www.youtube.com/watch?v=9bExpDRqBh0",
+      "cover": "",
+      "featured": false
+    },
+    {
+      "title": "ราชบุรี 3วัน2คืน | เมืองฮีลใจใกล้กรุง สนุกครบทุกฟีล",
+      "client": "Here We Go",
+      "type": "Long form",
+      "group": "",
+      "file": "",
+      "videoUrl": "https://www.youtube.com/watch?v=FPZiEQImwdg",
+      "cover": "",
+      "featured": false
+    },
+    {
+      "title": "เที่ยวน้ำตกสูงที่สุดในลาวใต้ โหนซิปไลน์ข้ามเหว | ปากเซ ลาว",
+      "client": "Here We Go",
+      "type": "Long form",
+      "group": "",
+      "file": "",
+      "videoUrl": "https://www.youtube.com/watch?v=M0iBWWW4JAs",
       "cover": "",
       "featured": false
     },
