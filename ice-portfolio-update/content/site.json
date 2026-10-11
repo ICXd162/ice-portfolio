@@ -1,9 +1,8 @@
 {
-  "name": "Ice Pongphisut",
-  "headline": "Edits that hold attention.",
-  "subtext": "",
-  "heroImage": "/uploads/portrait/hero-main-tight.webp",
-  "clientsLabel": "Brands I've worked with:",
+  "heroImage": "/uploads/main-sharp-graded.png#x=49&y=0&z=1.25",
+  "showreelImage": "https://picsum.photos/seed/ice-showreel/1600/900",
+  "thaiName": "พงศ์พิสุทธิ แก้วนิล (ไอซ์)",
+  "aboutLabel": "About me",
   "clients": [
     {
       "name": "Client 1",
@@ -26,38 +25,11 @@
       "logo": "/uploads/placeholders/logo-5.png"
     }
   ],
-  "aboutLabel": "About me",
-  "about": "I'm Ice, Pongphisut Kaewnil. I edit travel, food, gaming and brand content for YouTube channels and social teams, and I care most about pacing.",
-  "thaiName": "พงศ์พิสุทธิ แก้วนิล (ไอซ์)",
-  "showreelImage": "https://picsum.photos/seed/ice-showreel/1600/900",
-  "showreelUrl": "",
-  "heroSlides": [
-    {
-      "image": "/uploads/intro-port.mp4#x=6&y=65&z=1",
-      "link": ""
-    },
-    {
-      "image": "/uploads/long-port.mp4#x=90&y=0&z=1.45",
-      "link": ""
-    },
-    {
-      "image": "/uploads/motion-port_1.mp4#x=89&y=53&z=1.65",
-      "link": ""
-    },
-    {
-      "image": "/uploads/short-port1-1-.mp4#x=8&y=67&z=1",
-      "link": ""
-    },
-    {
-      "image": "/uploads/long-port.mp4#x=19&y=71&z=1.8",
-      "link": ""
-    },
-    {
-      "image": "/uploads/motion-port_1.mp4#x=7&y=58&z=1.05",
-      "link": ""
-    }
-  ],
   "accent": "#ff3f1e",
+  "name": "Ice Pongphisut",
+  "clientsLabel": "Brands I've worked with:",
+  "subtext": "",
+  "about": "I'm Ice, Pongphisut Kaewnil. I edit travel, food, gaming and brand content for YouTube channels and social teams, and I care most about pacing.",
   "sections": [
     {
       "section": "เกี่ยวกับฉัน",
@@ -98,6 +70,34 @@
     {
       "section": "คำถามที่พบบ่อย",
       "visible": true
+    }
+  ],
+  "headline": "Edits that hold attention.",
+  "showreelUrl": "",
+  "heroSlides": [
+    {
+      "image": "/uploads/intro-port.mp4#x=6&y=65&z=1",
+      "link": ""
+    },
+    {
+      "image": "/uploads/long-port.mp4#x=90&y=0&z=1.45",
+      "link": ""
+    },
+    {
+      "image": "/uploads/motion-port_1.mp4#x=89&y=53&z=1.65",
+      "link": ""
+    },
+    {
+      "image": "/uploads/short-port1-1-.mp4#x=8&y=67&z=1",
+      "link": ""
+    },
+    {
+      "image": "/uploads/long-port.mp4#x=19&y=71&z=1.8",
+      "link": ""
+    },
+    {
+      "image": "/uploads/motion-port_1.mp4#x=7&y=58&z=1.05",
+      "link": ""
     }
   ]
 }
