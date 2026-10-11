@@ -63,7 +63,7 @@ export function Hero() {
       {slides.length > 0 && (
         <motion.div
           style={{ transform: p(slidesT) as never }}
-          className="marquee-pause fade-y absolute top-[40%] right-3 bottom-20 z-10 w-[42vw] overflow-hidden sm:right-[8%] sm:w-[34vw] lg:top-0 lg:bottom-0 lg:right-[clamp(2rem,11vw,13rem)] lg:w-[clamp(220px,24vw,380px)]"
+          className="marquee-pause fade-y absolute top-[42%] right-2 bottom-24 z-10 w-[30vw] overflow-hidden md:top-[14%] md:right-[3%] md:bottom-0 md:w-[20vw] lg:top-0 lg:right-[clamp(2rem,7vw,9rem)] lg:w-[clamp(200px,20vw,320px)]"
           aria-label="Selected work"
         >
           <motion.ul
@@ -99,7 +99,7 @@ export function Hero() {
       {site.heroImage && (
         <motion.div
           style={{ transform: p(portraitT) as never }}
-          className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[64%] origin-bottom sm:inset-x-[4%] lg:inset-x-auto lg:left-[20%] lg:h-full lg:w-[58%]"
+          className="pointer-events-none absolute right-0 bottom-0 z-20 h-[64%] w-[86%] origin-bottom md:top-[6%] md:right-auto md:left-[30%] md:h-auto md:w-[58%] lg:top-0 lg:left-[29%] lg:w-[46%]"
         >
           <motion.div
             initial={reduce ? false : { opacity: 0, transform: "scale(1.04)" }}
@@ -108,7 +108,7 @@ export function Hero() {
             className="portrait-blend h-full w-full"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={parseCrop(site.heroImage).url} alt={`Portrait of ${site.name}`} fetchPriority="high" style={cropStyle(parseCrop(site.heroImage))} className="h-full w-full object-cover object-top" />
+            <img src={parseCrop(site.heroImage).url} alt={`Portrait of ${site.name}`} fetchPriority="high" style={cropStyle(parseCrop(site.heroImage))} className="h-full w-full object-cover object-[60%_top]" />
           </motion.div>
         </motion.div>
       )}

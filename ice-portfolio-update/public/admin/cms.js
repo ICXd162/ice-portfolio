@@ -234,7 +234,7 @@
   function img(getAsset, path, cls, extraStyle) {
     var c = parseCrop(path);
     if (!c.url) return null;
-    return h("img", { src: assetUrl(getAsset, c.url), className: cls, style: Object.assign({}, cropStyle(c), extraStyle || {}), alt: "" });
+    return h("img", { src: assetUrl(getAsset, c.url), className: cls, style: Object.assign({}, extraStyle || {}, cropStyle(c) || {}), alt: "" });
   }
   function shell(children) {
     return h("div", { className: "bg-ink text-paper", style: { minHeight: "100vh", fontFamily: "system-ui, sans-serif" } }, children);
@@ -262,8 +262,8 @@
               return h("div", { key: i }, img(ga, s.image, "aspect-square w-full object-cover"));
             }))
           ) : null,
-          d.heroImage ? h("div", { className: "portrait-blend absolute z-20", style: { left: "20%", width: "58%", top: 0, bottom: 0 } },
-            img(ga, d.heroImage, "h-full w-full object-cover object-top")
+          d.heroImage ? h("div", { className: "portrait-blend absolute z-20", style: { left: "29%", width: "46%", top: 0, bottom: 0 } },
+            img(ga, d.heroImage, "h-full w-full object-cover", { objectPosition: "60% top" })
           ) : null,
           h("div", { className: "relative z-40", style: { padding: "180px 40px 40px", maxWidth: "36rem" } },
             h("p", { className: "text-[1.9rem] leading-none font-medium tracking-[-0.04em] text-[#fc826c] uppercase" }, d.name || ""),
