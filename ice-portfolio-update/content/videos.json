@@ -463,6 +463,26 @@
       "featured": false
     },
     {
+      "title": "ตะลุยโอซาก้า Highlight | Osaka",
+      "client": "Here We Go",
+      "type": "Long form",
+      "group": "",
+      "file": "/uploads/videos/lf-osaka-highlight.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/lf-osaka-highlight.jpg",
+      "featured": false
+    },
+    {
+      "title": "Finance Explainer | Talking head",
+      "client": "",
+      "type": "Long form",
+      "group": "",
+      "file": "/uploads/videos/lf-finance-explainer.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/lf-finance-explainer.jpg",
+      "featured": false
+    },
+    {
       "title": "Motion graphics title 1",
       "client": "Client name",
       "type": "Motion graphics",
