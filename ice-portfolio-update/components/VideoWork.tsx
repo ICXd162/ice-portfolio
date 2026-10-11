@@ -50,11 +50,11 @@ function VideoCard({ v, onPlay }: { v: Video; onPlay: (v: Video) => void }) {
         {(inPage || v.videoUrl) && (
           <span
             aria-hidden
-            className={`absolute flex items-center justify-center rounded-full bg-accent text-white transition-transform duration-300 group-hover:scale-110 motion-reduce:transition-none ${
-              vertical ? "bottom-3 left-3 h-10 w-10" : "bottom-4 left-4 h-12 w-12"
+            className={`absolute text-white/70 drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)] transition-[color,transform] duration-200 ease-[var(--ease-out)] group-hover:scale-110 group-hover:text-white motion-reduce:transition-none ${
+              vertical ? "bottom-3 left-3" : "bottom-4 left-4"
             }`}
           >
-            {inPage ? <Play size={vertical ? 14 : 18} weight="fill" /> : <ArrowUpRight size={vertical ? 14 : 18} weight="bold" />}
+            {inPage ? <Play size={vertical ? 22 : 28} weight="fill" /> : <ArrowUpRight size={vertical ? 22 : 28} weight="bold" />}
           </span>
         )}
       </div>

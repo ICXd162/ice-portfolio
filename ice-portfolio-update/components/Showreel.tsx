@@ -33,9 +33,11 @@ export function Showreel({ image, url }: { image: string; url: string }) {
   const frame = "relative block aspect-video w-full overflow-hidden rounded-[var(--radius-card)] bg-ink";
   const playBadge = (
     <span className="absolute inset-0 flex items-center justify-center">
-      <span className="flex h-20 w-20 items-center justify-center rounded-full bg-accent text-white shadow-[0_10px_40px_rgba(255,63,30,0.45)] transition-transform duration-300 ease-[var(--ease-out)] group-hover:scale-110 group-active:scale-95 motion-reduce:transition-none">
-        <Play size={28} weight="fill" />
-      </span>
+      <Play
+        size={72}
+        weight="fill"
+        className="text-white/70 drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-[color,transform] duration-200 ease-[var(--ease-out)] group-hover:scale-110 group-hover:text-white group-active:scale-95 motion-reduce:transition-none"
+      />
     </span>
   );
 
