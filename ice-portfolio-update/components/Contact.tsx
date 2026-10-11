@@ -15,7 +15,9 @@ import { Reveal } from "./Reveal";
 import { contact, telHref } from "@/lib/work";
 
 // Layout family: single large card, details left and form right.
-// Submissions go to Netlify Forms (form "contact", declared in public/__forms.html).
+// Submissions go to FormSubmit (works on any static host, e.g. GitHub Pages) and arrive by email
+// at the address set in the admin under Contact. The very first submission sends an activation
+// email to that address; click "Activate Form" once and every brief after that is delivered.
 
 type Fields = { name: string; email: string; type: string; message: string };
 type Errors = Partial<Record<keyof Fields, string>>;
@@ -38,6 +40,7 @@ export function Contact() {
   const reduce = useReducedMotion();
   const [f, setF] = useState<Fields>({ name: "", email: "", type: types[0], message: "" });
   const [errors, setErrors] = useState<Errors>({});
+  const [honey, setHoney] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "failed">("idle");
 
   const set = (k: keyof Fields) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -52,11 +55,17 @@ export function Contact() {
     if (Object.keys(found).length) return;
     setStatus("sending");
     try {
-      const body = new URLSearchParams({ "form-name": "contact", ...f, "bot-field": "" });
-      const res = await fetch("/__forms.html", {
+      if (honey) { setStatus("sent"); return; }
+      const res = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(contact.email)}`, {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: body.toString(),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          ...f,
+          _subject: `New brief from ${f.name} (${f.type || "project"})`,
+          _replyto: f.email,
+          _template: "table",
+          _captcha: "false",
+        }),
       });
       if (!res.ok) throw new Error(String(res.status));
       setStatus("sent");
@@ -137,8 +146,6 @@ export function Contact() {
                   key="form"
                   name="contact"
                   method="POST"
-                  data-netlify="true"
-                  netlify-honeypot="bot-field"
                   noValidate
                   onSubmit={onSubmit}
                   initial={reduce ? false : { opacity: 0 }}
@@ -146,10 +153,9 @@ export function Contact() {
                   exit={{ opacity: 0 }}
                   className="grid grid-cols-1 gap-5 sm:grid-cols-2"
                 >
-                  <input type="hidden" name="form-name" value="contact" />
-                  <p className="hidden">
+                                    <p className="hidden">
                     <label>
-                      Leave this empty <input name="bot-field" tabIndex={-1} autoComplete="off" />
+                      Leave this empty <input name="_honey" tabIndex={-1} autoComplete="off" value={honey} onChange={(e) => setHoney(e.target.value)} />
                     </label>
                   </p>
                   <div className="grid gap-2">

@@ -1,15 +1,36 @@
 // Content comes from /content/*.json, which the admin panel (/admin) edits.
 // Sections whose list is empty in the admin are hidden on the page.
-import siteData from "@/content/site.json";
-import videosData from "@/content/videos.json";
-import designsData from "@/content/designs.json";
-import processData from "@/content/process.json";
-import servicesData from "@/content/services.json";
-import statsData from "@/content/stats.json";
-import testimonialsData from "@/content/testimonials.json";
-import pricingData from "@/content/pricing.json";
-import faqData from "@/content/faq.json";
-import contactData from "@/content/contact.json";
+import siteRaw from "@/content/site.json";
+import videosRaw from "@/content/videos.json";
+import designsRaw from "@/content/designs.json";
+import processRaw from "@/content/process.json";
+import servicesRaw from "@/content/services.json";
+import statsRaw from "@/content/stats.json";
+import testimonialsRaw from "@/content/testimonials.json";
+import pricingRaw from "@/content/pricing.json";
+import faqRaw from "@/content/faq.json";
+import contactRaw from "@/content/contact.json";
+
+/** Site base path ("" on Netlify, "/ice-portfolio" on GitHub Pages). Uploaded files are stored as
+ *  "/uploads/..." in the content, so they get the prefix here, once, for every component. */
+export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+export const withBase = (p: string) => (BASE_PATH && p.startsWith("/uploads/") ? BASE_PATH + p : p);
+function prefixUploads<T>(v: T): T {
+  if (typeof v === "string") return withBase(v) as T;
+  if (Array.isArray(v)) return v.map(prefixUploads) as T;
+  if (v && typeof v === "object") return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, prefixUploads(x)])) as T;
+  return v;
+}
+const siteData = prefixUploads(siteRaw);
+const videosData = prefixUploads(videosRaw);
+const designsData = prefixUploads(designsRaw);
+const processData = prefixUploads(processRaw);
+const servicesData = prefixUploads(servicesRaw);
+const statsData = prefixUploads(statsRaw);
+const testimonialsData = prefixUploads(testimonialsRaw);
+const pricingData = prefixUploads(pricingRaw);
+const faqData = prefixUploads(faqRaw);
+const contactData = prefixUploads(contactRaw);
 
 const list = <T,>(v: unknown): T[] => (Array.isArray(v) ? (v.filter(Boolean) as T[]) : []);
 const text = (v: unknown) => (typeof v === "string" ? v.trim() : "");

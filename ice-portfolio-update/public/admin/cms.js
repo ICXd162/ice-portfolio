@@ -10,6 +10,10 @@
   var CMS = window.CMS;
   var h = window.h;
   var createClass = window.createClass;
+  // The site may live under a sub-path (GitHub Pages: /ice-portfolio/admin/), so "/uploads/..." paths
+  // stored in the content need that prefix to load in the preview.
+  var BASE = location.pathname.replace(/\/admin(\/.*)?$/, "");
+  function withBase(p) { return p && p.indexOf("/uploads/") === 0 ? BASE + p : p; }
 
   /* ---------- crop helpers (mirror lib/crop.ts) ---------- */
   function parseCrop(src) {
@@ -50,9 +54,9 @@
       var m = /^\/uploads\/([^/]+)$/.exec(path);
       var a = getAsset ? getAsset(m ? m[1] : path, field) : null;
       var s = a ? String(a) : "";
-      return s && s !== "[object Object]" ? s : path;
+      return s && s !== "[object Object]" && s.indexOf("/uploads/") !== 0 ? s : withBase(s && s !== "[object Object]" ? s : path);
     } catch (e) {
-      return path;
+      return withBase(path);
     }
   }
 
@@ -352,7 +356,7 @@
   CMS.registerPreviewTemplate("designs", DesignsPreview);
 
   /* Pull the site's compiled stylesheet(s) into the preview pane, then start the CMS. */
-  fetch("/", { cache: "no-store" })
+  fetch(BASE + "/", { cache: "no-store" })
     .then(function (r) { return r.text(); })
     .then(function (html) {
       var re = /href="([^"]+\.css)"/g, m, seen = {};

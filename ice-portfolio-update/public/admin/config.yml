@@ -1,10 +1,13 @@
 # Decap CMS: edits the files in /content and uploads images to /public/uploads.
-# Each "Publish" commits to GitHub, and Netlify rebuilds the site (about 1-2 minutes).
+# Each "Publish" commits to GitHub, and GitHub Actions rebuilds the site on GitHub Pages (about 2-3 minutes).
+# Login uses the GitHub OAuth app already registered on the Netlify site (site_domain), so it works from GitHub Pages.
 # Paths start with ice-portfolio-update/ because the site lives in that folder of the repository.
 backend:
   name: github
   repo: ICXd162/ice-portfolio
   branch: main
+  base_url: https://api.netlify.com
+  site_domain: resplendent-daffodil-6cb7b2.netlify.app
   commit_messages:
     update: "อัปเดต {{slug}}"
     uploadMedia: "อัปโหลด {{path}}"
@@ -13,8 +16,8 @@ backend:
 locale: th
 media_folder: ice-portfolio-update/public/uploads
 public_folder: /uploads
-site_url: https://resplendent-daffodil-6cb7b2.netlify.app
-display_url: https://resplendent-daffodil-6cb7b2.netlify.app
+site_url: https://icxd162.github.io/ice-portfolio
+display_url: https://icxd162.github.io/ice-portfolio
 
 collections:
   - name: sections
