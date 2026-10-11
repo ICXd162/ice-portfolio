@@ -33,27 +33,27 @@
   "showreelUrl": "",
   "heroSlides": [
     {
-      "image": "https://picsum.photos/seed/ice-slide-1/800/800",
+      "image": "/uploads/intro-port.mp4#x=6&y=65&z=1",
       "link": ""
     },
     {
-      "image": "https://picsum.photos/seed/ice-slide-2/800/800",
+      "image": "/uploads/long-port.mp4#x=90&y=0&z=1.45",
       "link": ""
     },
     {
-      "image": "https://picsum.photos/seed/ice-slide-3/800/800",
+      "image": "/uploads/motion-port_1.mp4#x=89&y=53&z=1.65",
       "link": ""
     },
     {
-      "image": "https://picsum.photos/seed/ice-slide-4/800/800",
+      "image": "/uploads/short-port1-1-.mp4#x=8&y=67&z=1",
       "link": ""
     },
     {
-      "image": "https://picsum.photos/seed/ice-slide-5/800/800",
+      "image": "/uploads/long-port.mp4#x=19&y=71&z=1.8",
       "link": ""
     },
     {
-      "image": "https://picsum.photos/seed/ice-slide-6/800/800",
+      "image": "/uploads/motion-port_1.mp4#x=7&y=58&z=1.05",
       "link": ""
     }
   ],

@@ -33,6 +33,13 @@
     if (!c.has) return {};
     return { objectPosition: c.x + "% " + c.y + "%", transform: c.z !== 1 ? "scale(" + c.z + ")" : undefined, transformOrigin: c.x + "% " + c.y + "%" };
   }
+  // Slides can be short looping videos (.mp4/.webm) as well as images; render the right element for each.
+  var VIDEO_RE = /\.(mp4|webm|mov|m4v)(\?.*)?$/i;
+  function mediaEl(props) {
+    var url = (props.src || "").split("#")[0];
+    if (VIDEO_RE.test(url)) return h("video", Object.assign({}, props, { muted: true, autoPlay: true, loop: true, playsInline: true }));
+    return h("img", props);
+  }
   function assetUrl(getAsset, path, field) {
     if (!path) return "";
     if (/^(https?:)?\/\//.test(path) || path.indexOf("blob:") === 0 || path.indexOf("data:") === 0) return path;
@@ -186,7 +193,7 @@
           role: "application",
           "aria-label": "ลากเพื่อเลื่อนตำแหน่งรูป",
         },
-          h("img", { src: src, alt: "", style: { objectPosition: c.x + "% " + c.y + "%", transform: "scale(" + c.z + ")", transformOrigin: c.x + "% " + c.y + "%" } }),
+          mediaEl({ src: src, alt: "", style: { objectPosition: c.x + "% " + c.y + "%", transform: "scale(" + c.z + ")", transformOrigin: c.x + "% " + c.y + "%" } }),
           h("div", { className: "ic-grid" }),
           h("div", { className: "ic-dot", style: { left: c.x + "%", top: c.y + "%" } })
         ),
@@ -224,7 +231,7 @@
   var ImageCropPreview = function (props) {
     var c = parseCrop(props.value);
     if (!c.url) return null;
-    return h("img", { src: assetUrl(props.getAsset, c.url, props.field), style: Object.assign({ maxWidth: "100%", objectFit: "cover" }, cropStyle(c)) });
+    return mediaEl({ src: assetUrl(props.getAsset, c.url, props.field), style: Object.assign({ maxWidth: "100%", objectFit: "cover" }, cropStyle(c)) });
   };
 
   CMS.registerWidget("imagecrop", ImageCropControl, ImageCropPreview);
@@ -234,7 +241,7 @@
   function img(getAsset, path, cls, extraStyle) {
     var c = parseCrop(path);
     if (!c.url) return null;
-    return h("img", { src: assetUrl(getAsset, c.url), className: cls, style: Object.assign({}, extraStyle || {}, cropStyle(c) || {}), alt: "" });
+    return mediaEl({ src: assetUrl(getAsset, c.url), className: cls, style: Object.assign({}, extraStyle || {}, cropStyle(c) || {}), alt: "" });
   }
   function shell(children) {
     return h("div", { className: "bg-ink text-paper", style: { minHeight: "100vh", fontFamily: "system-ui, sans-serif" } }, children);

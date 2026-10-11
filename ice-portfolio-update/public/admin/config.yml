@@ -47,7 +47,7 @@ collections:
             summary: "{{fields.image}}"
             hint: "แนะนำ 4-8 รูป ภาพสี่เหลี่ยมจัตุรัสจะสวยที่สุด"
             fields:
-              - { name: image, label: รูป (สี่เหลี่ยมจัตุรัส), widget: imagecrop, aspect: "1/1" }
+              - { name: image, label: รูป หรือวิดีโอสั้น .mp4 (สี่เหลี่ยมจัตุรัส), widget: imagecrop, aspect: "1/1", hint: "ภาพเคลื่อนไหวให้ใช้ .mp4 แทน GIF (GIF ไฟล์ใหญ่มาก) ทุกไฟล์ต้องไม่เกิน 20MB ไม่งั้นจะกดเผยแพร่ไม่ผ่าน" }
               - { name: link, label: ลิงก์เมื่อกดรูป (ไม่ใส่ก็ได้), widget: string, required: false }
           - { name: clientsLabel, label: ข้อความหน้าโลโก้ลูกค้า, widget: string, required: false }
           - name: clients

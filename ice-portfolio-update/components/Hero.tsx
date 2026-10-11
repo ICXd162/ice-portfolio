@@ -75,9 +75,14 @@ export function Hero() {
           >
             {[...slides, ...slides].map((s, i) => {
               const dup = i >= slides.length;
-              const img = (
+              const c = parseCrop(s.image);
+              const isVideo = /\.(mp4|webm|mov|m4v)$/i.test(c.url);
+              const img = isVideo ? (
+                // Short looping clip (converted from GIF): muted autoplay, no controls
+                <video src={c.url} muted autoPlay loop playsInline preload="metadata" aria-hidden={dup} style={cropStyle(c)} className="aspect-square w-full object-cover" />
+              ) : (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={parseCrop(s.image).url} alt={dup ? "" : `Work sample ${i + 1}`} loading="eager" decoding="async" style={cropStyle(parseCrop(s.image))} className="aspect-square w-full object-cover" />
+                <img src={c.url} alt={dup ? "" : `Work sample ${i + 1}`} loading="eager" decoding="async" style={cropStyle(c)} className="aspect-square w-full object-cover" />
               );
               return (
                 <li key={`${s.image}-${i}`} aria-hidden={dup}>
