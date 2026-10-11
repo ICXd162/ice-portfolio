@@ -1,6 +1,5 @@
-import { Play } from "@phosphor-icons/react/dist/ssr";
 import { Reveal } from "./Reveal";
-import { ParallaxMedia } from "./ParallaxMedia";
+import { Showreel } from "./Showreel";
 import { Button, Kicker } from "./Button";
 import { WordReveal } from "./WordReveal";
 import { SplitHeading } from "./SplitHeading";
@@ -35,22 +34,9 @@ export function About({ overlap = true }: { overlap?: boolean }) {
             </Button>
           </Reveal>
 
-          {site.showreelImage && (
+          {(site.showreelImage || site.showreelUrl) && (
             <Reveal className="mt-14">
-              <a
-                href={site.showreelUrl || "#video"}
-                target={site.showreelUrl ? "_blank" : undefined}
-                rel="noopener noreferrer"
-                className="group relative block overflow-hidden rounded-[var(--radius-card)]"
-                aria-label={site.showreelUrl ? "Watch showreel" : "Go to featured work"}
-              >
-                <ParallaxMedia src={site.showreelImage} alt="Showreel frame" sizes="(min-width: 1024px) 60vw, 100vw" className="aspect-video w-full" strength={10} />
-                <span className="absolute inset-0 flex items-center justify-center">
-                  <span className="flex h-20 w-20 items-center justify-center rounded-full bg-accent text-white shadow-[0_10px_40px_rgba(255,63,30,0.45)] transition-transform duration-300 group-hover:scale-110 motion-reduce:transition-none">
-                    <Play size={28} weight="fill" />
-                  </span>
-                </span>
-              </a>
+              <Showreel image={site.showreelImage} url={site.showreelUrl} />
             </Reveal>
           )}
         </div>

@@ -1,6 +1,6 @@
 {
   "heroImage": "/uploads/portrait/hero-main-v2.webp",
-  "showreelImage": "https://picsum.photos/seed/ice-showreel/1600/900",
+  "showreelImage": "/uploads/videos/lf-finance-explainer.jpg",
   "thaiName": "พงศ์พิสุทธิ แก้วนิล (ไอซ์)",
   "aboutLabel": "About me",
   "clients": [
@@ -73,7 +73,7 @@
     }
   ],
   "headline": "Edits that hold attention.",
-  "showreelUrl": "",
+  "showreelUrl": "/uploads/videos/lf-finance-explainer.mp4",
   "heroSlides": [
     {
       "image": "/uploads/intro-port.mp4#x=6&y=65&z=1",

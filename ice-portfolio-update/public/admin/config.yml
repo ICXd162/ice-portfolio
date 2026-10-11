@@ -67,7 +67,7 @@ collections:
           - { name: about, label: แนะนำตัว, widget: text }
           - { name: thaiName, label: ชื่อภาษาไทย, widget: string, required: false }
           - { name: showreelImage, label: ภาพปก Showreel, widget: imagecrop, aspect: "16/9", required: false }
-          - { name: showreelUrl, label: ลิงก์ Showreel (YouTube / Vimeo / Drive), widget: string, required: false }
+          - { name: showreelUrl, label: "คลิปไฮไลต์ใต้ส่วนแนะนำตัว (ลิงก์ YouTube หรือไฟล์ เช่น /uploads/videos/xxx.mp4)", widget: string, required: false }
 
       - name: videos
         label: "2. งานวิดีโอ"
