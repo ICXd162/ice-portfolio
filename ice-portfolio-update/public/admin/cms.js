@@ -270,7 +270,7 @@
         },
           slides.length ? h("div", { className: "fade-y absolute top-0 bottom-0 z-10 overflow-hidden", style: { right: "8%", width: "26%" } },
             h("div", { className: "flex flex-col gap-3" }, slides.slice(0, 4).map(function (s, i) {
-              return h("div", { key: i }, img(ga, s.image, "aspect-video w-full object-cover"));
+              return h("div", { key: i }, img(ga, s.image, "aspect-video w-full object-cover rounded-[20px]"));
             }))
           ) : null,
           d.heroImage ? h("div", { className: "portrait-blend absolute z-20", style: { left: "29%", width: "46%", top: 0, bottom: 0 } },

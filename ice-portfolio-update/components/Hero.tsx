@@ -85,7 +85,7 @@ export function Hero() {
                 <img src={c.url} alt={dup ? "" : `Work sample ${i + 1}`} loading="eager" decoding="async" style={cropStyle(c)} className="aspect-video w-full object-cover" />
               );
               return (
-                <li key={`${s.image}-${i}`} aria-hidden={dup}>
+                <li key={`${s.image}-${i}`} aria-hidden={dup} className="overflow-hidden rounded-[20px]">
                   {s.link ? (
                     <a href={s.link} target="_blank" rel="noopener noreferrer" tabIndex={dup ? -1 : undefined} className="block transition-opacity hover:opacity-85">
                       {img}
