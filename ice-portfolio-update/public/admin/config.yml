@@ -1,13 +1,13 @@
 # Decap CMS: edits the files in /content and uploads images to /public/uploads.
 # Each "Publish" commits to GitHub, and GitHub Actions rebuilds the site on GitHub Pages (about 2-3 minutes).
-# Login uses the GitHub OAuth app already registered on the Netlify site (site_domain), so it works from GitHub Pages.
+# Login goes through our own Cloudflare Worker (code in /cms-auth-worker), no Netlify needed.
 # Paths start with ice-portfolio-update/ because the site lives in that folder of the repository.
 backend:
   name: github
   repo: ICXd162/ice-portfolio
   branch: main
-  base_url: https://api.netlify.com
-  site_domain: resplendent-daffodil-6cb7b2.netlify.app
+  base_url: https://ice-cms-auth.aauun2008.workers.dev
+  auth_endpoint: auth
   commit_messages:
     update: "อัปเดต {{slug}}"
     uploadMedia: "อัปโหลด {{path}}"
