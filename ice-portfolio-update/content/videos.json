@@ -483,25 +483,104 @@
       "featured": false
     },
     {
-      "title": "Motion graphics title 1",
-      "client": "Client name",
+      "title": "Nihon Sankei: The Three Views of Japan",
+      "client": "",
       "type": "Motion graphics",
+      "group": "",
+      "file": "/uploads/videos/mg-nihon-sankei.mp4",
       "videoUrl": "",
-      "cover": "https://picsum.photos/seed/ice-motion-1/1280/720"
+      "cover": "/uploads/videos/mg-nihon-sankei.jpg",
+      "featured": false
     },
     {
-      "title": "Motion graphics title 2",
-      "client": "Client name",
+      "title": "Exploring Tohoku Japan",
+      "client": "",
       "type": "Motion graphics",
+      "group": "",
+      "file": "/uploads/videos/mg-tohoku.mp4",
       "videoUrl": "",
-      "cover": "https://picsum.photos/seed/ice-motion-2/1280/720"
+      "cover": "/uploads/videos/mg-tohoku.jpg",
+      "featured": false
     },
     {
-      "title": "Motion graphics title 3",
-      "client": "Client name",
+      "title": "Visualizing History: Ginzan Onsen",
+      "client": "",
       "type": "Motion graphics",
+      "group": "",
+      "file": "/uploads/videos/mg-ginzan-onsen.mp4",
       "videoUrl": "",
-      "cover": "https://picsum.photos/seed/ice-motion-3/1280/720"
+      "cover": "/uploads/videos/mg-ginzan-onsen.jpg",
+      "featured": false
+    },
+    {
+      "title": "Snow Monsters: The Giants of the Mountain",
+      "client": "",
+      "type": "Motion graphics",
+      "group": "",
+      "file": "/uploads/videos/mg-snow-monsters.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/mg-snow-monsters.jpg",
+      "featured": false
+    },
+    {
+      "title": "Exploring Qingdao's Heritage",
+      "client": "",
+      "type": "Motion graphics",
+      "group": "",
+      "file": "/uploads/videos/mg-qingdao.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/mg-qingdao.jpg",
+      "featured": false
+    },
+    {
+      "title": "Cyberpunk China: A 20-Year Evolution",
+      "client": "",
+      "type": "Motion graphics",
+      "group": "",
+      "file": "/uploads/videos/mg-cyberpunk-china.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/mg-cyberpunk-china.jpg",
+      "featured": false
+    },
+    {
+      "title": "The Heritage of Ratchaburi: The Origin of Dragon Jars",
+      "client": "",
+      "type": "Motion graphics",
+      "group": "",
+      "file": "/uploads/videos/mg-dragon-jars.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/mg-dragon-jars.jpg",
+      "featured": false
+    },
+    {
+      "title": "Thai History: The Story of Khao Wang",
+      "client": "",
+      "type": "Motion graphics",
+      "group": "",
+      "file": "/uploads/videos/mg-khao-wang.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/mg-khao-wang.jpg",
+      "featured": false
+    },
+    {
+      "title": "ตำนานถ้ำนาคา | Naga Cave Legend",
+      "client": "",
+      "type": "Motion graphics",
+      "group": "",
+      "file": "/uploads/videos/mg-naga-cave.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/mg-naga-cave.jpg",
+      "featured": false
+    },
+    {
+      "title": "Taiwan: Asking the Gods with Moon Blocks",
+      "client": "",
+      "type": "Motion graphics",
+      "group": "",
+      "file": "/uploads/videos/mg-taiwan-moon-blocks.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/mg-taiwan-moon-blocks.jpg",
+      "featured": false
     }
   ]
 }
