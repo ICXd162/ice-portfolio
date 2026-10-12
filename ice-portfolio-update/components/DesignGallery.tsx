@@ -6,6 +6,7 @@ import { MagnifyingGlassPlus, ArrowUpRight, Images } from "@phosphor-icons/react
 import { Media } from "./Media";
 import { SectionHead } from "./SectionHead";
 import { Lightbox } from "./Lightbox";
+import { ProjectSheet } from "./ProjectSheet";
 import { DESIGN_FRAMES, type Design } from "@/lib/work";
 import { parseCrop } from "@/lib/crop";
 
@@ -17,27 +18,31 @@ export function DesignGallery({ heading, intro, items }: { heading: string; intr
   const reduce = useReducedMotion();
   const types = useMemo(() => Array.from(new Set(items.map((d) => d.type))), [items]);
   const [filter, setFilter] = useState("All");
-  const [open, setOpen] = useState<number | null>(null);
-  const [page, setPage] = useState(0);
+  const [open, setOpen] = useState<number | null>(null); // single piece (no "images" list) in the viewer
+  const [project, setProject] = useState<number | null>(null); // project overview page
+  const [page, setPage] = useState<number | null>(null); // piece of the open project in the viewer
   const shown = useMemo(() => (filter === "All" ? items : items.filter((d) => d.type === filter)), [filter, items]);
 
-  // A project with an "images" list opens as its own slideshow; single pieces step through the gallery.
-  const current = open !== null ? shown[open] : null;
-  const pages = current ? (current.images.length ? current.images : [current.image]) : [];
-  const isProject = pages.length > 1;
-  const count = isProject ? pages.length : shown.length;
-  const index = isProject ? page : (open ?? 0);
+  // Projects (with an "images" list) open an overview page first; a piece there opens large.
+  // Single pieces open straight in the viewer and step through the gallery.
+  const proj = project !== null ? shown[project] : null;
+  const inProject = proj !== null && page !== null;
+  const current = inProject ? proj : open !== null ? shown[open] : null;
+  const count = inProject ? proj!.images.length : shown.length;
+  const index = inProject ? page! : (open ?? 0);
+  const src = inProject ? proj!.images[page!] : current?.image ?? "";
 
-  const close = useCallback(() => setOpen(null), []);
+  const close = useCallback(() => (page !== null ? setPage(null) : setOpen(null)), [page]);
   const prev = useCallback(() => {
-    if (isProject) setPage((p) => (p - 1 + pages.length) % pages.length);
+    if (page !== null && proj) setPage((p) => ((p ?? 0) - 1 + proj.images.length) % proj.images.length);
     else setOpen((i) => (i === null ? i : (i - 1 + shown.length) % shown.length));
-  }, [isProject, pages.length, shown.length]);
+  }, [page, proj, shown.length]);
   const next = useCallback(() => {
-    if (isProject) setPage((p) => (p + 1) % pages.length);
+    if (page !== null && proj) setPage((p) => ((p ?? 0) + 1) % proj.images.length);
     else setOpen((i) => (i === null ? i : (i + 1) % shown.length));
-  }, [isProject, pages.length, shown.length]);
-  const openAt = (i: number) => { setPage(0); setOpen(i); };
+  }, [page, proj, shown.length]);
+  const openAt = (i: number) => (shown[i].images.length > 1 ? setProject(i) : setOpen(i));
+  const closeProject = useCallback(() => { setPage(null); setProject(null); }, []);
   const uniform = shown.length > 0 && new Set(shown.map((d) => d.frame)).size === 1 && DESIGN_FRAMES[shown[0].frame] !== null;
 
   return (
@@ -84,7 +89,7 @@ export function DesignGallery({ heading, intro, items }: { heading: string; intr
               <button
                 onClick={() => openAt(i)}
                 className="group relative block w-full overflow-hidden rounded-[var(--radius-media)] bg-ink-2 text-left"
-                aria-label={`View ${d.title} full size`}
+                aria-label={d.images.length > 1 ? `Open ${d.title} (${d.images.length} pieces)` : `View ${d.title} full size`}
               >
                 {DESIGN_FRAMES[d.frame] || d.dims ? (
                   <div style={{ aspectRatio: DESIGN_FRAMES[d.frame] ?? `${d.dims!.w} / ${d.dims!.h}` }}>
@@ -146,14 +151,15 @@ export function DesignGallery({ heading, intro, items }: { heading: string; intr
       >
         {current && (
           // eslint-disable-next-line @next/next/no-img-element
-          <img key={pages[page] ?? current.image} src={parseCrop(isProject ? pages[page] : current.image).url} alt={current.title} className="max-h-[80dvh] max-w-[min(92vw,1400px)] rounded-[var(--radius-media)] object-contain" />
+          <img key={src} src={parseCrop(src).url} alt={current.title} className="max-h-[80dvh] max-w-[min(92vw,1400px)] rounded-[var(--radius-media)] object-contain" />
         )}
-        {isProject && (
-          // Warm the next page so stepping through a project feels instant.
+        {inProject && (
+          // Warm the next piece so stepping through a project feels instant.
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={pages[(page + 1) % pages.length]} alt="" aria-hidden className="hidden" />
+          <img src={proj!.images[(page! + 1) % proj!.images.length]} alt="" aria-hidden className="hidden" />
         )}
       </Lightbox>
+      <ProjectSheet project={proj} onClose={closeProject} onPick={setPage} viewerOpen={page !== null} />
     </section>
   );
 }
