@@ -160,14 +160,14 @@ export function Hero() {
             )}
             <div className="fade-x min-w-0 flex-1 overflow-hidden lg:max-w-[52%]">
               <ul
-                className="marquee-track flex w-max items-center gap-10 pr-10 lg:gap-14 lg:pr-14"
+                className="marquee-track flex w-max items-center gap-6 pr-6 lg:gap-8 lg:pr-8"
                 style={{ ["--marquee-dur" as string]: logoDur }}
                 aria-label={site.clientsLabel || "Clients"}
               >
                 {[...site.clients, ...site.clients, ...site.clients, ...site.clients].map((c, i) => (
                   <li key={`${c.logo}-${i}`} aria-hidden={i >= site.clients.length} className="shrink-0">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={parseCrop(c.logo).url} alt={i < site.clients.length ? c.name : ""} className="h-7 w-auto max-w-[8rem] object-contain brightness-0 invert lg:h-9 lg:max-w-[9rem]" />
+                    <img src={parseCrop(c.logo).url} alt={i < site.clients.length ? c.name : ""} className="h-12 w-auto max-w-none object-contain brightness-0 invert lg:h-16" />
                   </li>
                 ))}
               </ul>

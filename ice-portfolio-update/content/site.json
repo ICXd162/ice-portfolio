@@ -5,24 +5,20 @@
   "aboutLabel": "About me",
   "clients": [
     {
-      "name": "Client 1",
-      "logo": "/uploads/placeholders/logo-1.png"
+      "name": "Here We Go",
+      "logo": "/uploads/clients/logo-here-we-go.png"
     },
     {
-      "name": "Client 2",
-      "logo": "/uploads/placeholders/logo-2.png"
+      "name": "AIS eSports",
+      "logo": "/uploads/clients/logo-ais-esports.png"
     },
     {
-      "name": "Client 3",
-      "logo": "/uploads/placeholders/logo-3.png"
+      "name": "True 5G Esports Tournament",
+      "logo": "/uploads/clients/logo-true5g-esports.png"
     },
     {
-      "name": "Client 4",
-      "logo": "/uploads/placeholders/logo-4.png"
-    },
-    {
-      "name": "Client 5",
-      "logo": "/uploads/placeholders/logo-5.png"
+      "name": "The Skin Clinic",
+      "logo": "/uploads/clients/logo-the-skin-clinic.png"
     }
   ],
   "accent": "#ff3f1e",

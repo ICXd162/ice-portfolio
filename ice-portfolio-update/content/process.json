@@ -5,17 +5,17 @@
     {
       "title": "Brief",
       "body": "You send footage, references and the target platform. I reply with a timeline and a fixed quote.",
-      "image": "https://picsum.photos/seed/ice-process-1/1200/750"
+      "image": "/uploads/process/step-1.jpg"
     },
     {
       "title": "Edit",
       "body": "A rough cut to agree on story and pacing, then color, sound, captions and motion graphics.",
-      "image": "https://picsum.photos/seed/ice-process-2/1200/750"
+      "image": "/uploads/process/step-2.jpg"
     },
     {
       "title": "Deliver",
       "body": "Final files exported for each platform, with agreed revisions included.",
-      "image": "https://picsum.photos/seed/ice-process-3/1200/750"
+      "image": "/uploads/process/step-3.jpg"
     }
   ]
 }
