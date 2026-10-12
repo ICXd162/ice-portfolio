@@ -9,7 +9,7 @@ import { Lightbox } from "./Lightbox";
 import { videos, VIDEO_TYPES, type Video, type VideoType } from "@/lib/work";
 
 // Layout family: tabbed grid. Each type gets the frame it was made for:
-//   Short form -> a Highlights row on top, then 9:16 cards filtered by group
+//   Short form -> 9:16 cards filtered by group, featured clips first
 //   Long form / Motion graphics -> 16:9 cards, two across
 // Videos hosted on the site and YouTube links play in a pop-up player; other links open in a new tab.
 const PAGE: Record<VideoType, number> = { "Short form": 10, "Long form": 6, "Motion graphics": 6 };
@@ -105,16 +105,18 @@ export function VideoWork() {
 
   const vertical = tab === "Short form";
   const tabItems = useMemo(() => videos.items.filter((v) => v.type === tab), [tab]);
-  // Short form: items marked "featured" form the Highlights row; everything else goes in the filtered grid.
-  const highlights = vertical ? tabItems.filter((v) => v.featured) : [];
-  const rest = vertical ? tabItems.filter((v) => !v.featured) : tabItems;
+  // Short form: clips marked "featured" (ไฮไลต์) lead the grid; there is no separate row.
+  const rest = useMemo(
+    () => (vertical ? [...tabItems.filter((v) => v.featured), ...tabItems.filter((v) => !v.featured)] : tabItems),
+    [vertical, tabItems],
+  );
   const groups = useMemo(() => {
     const seen: string[] = [];
-    for (const v of rest) if (v.group && !seen.includes(v.group)) seen.push(v.group);
+    for (const v of rest) if (v.group && !/^highlights?$/i.test(v.group) && !seen.includes(v.group)) seen.push(v.group);
     return seen;
   }, [rest]);
   const items = group === ALL ? rest : rest.filter((v) => v.group === group);
-  const playable = [...highlights, ...items].filter((v) => v.youtube || v.file);
+  const playable = items.filter((v) => v.youtube || v.file);
 
   const step = useCallback(
     (dir: 1 | -1) => {
@@ -182,23 +184,6 @@ export function VideoWork() {
               exit={reduce ? { opacity: 0 } : { opacity: 0, transform: "translateY(-8px)" }}
               transition={{ duration: 0.35, ease: EASE_OUT }}
             >
-              {highlights.length > 0 && (
-                <div className="mb-14">
-                  <h3 className="mb-5 flex items-center gap-2 text-sm font-medium tracking-[0.12em] text-paper uppercase">
-                    <span aria-hidden className="h-2 w-2 rounded-full bg-accent" />
-                    Highlights
-                  </h3>
-                  {/* Phones: a swipeable row. Larger screens: one row of up to five. */}
-                  <ul className="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-5 lg:gap-5">
-                    {highlights.map((v, i) => (
-                      <motion.li key={`h-${v.cover}-${i}`} className="w-[46%] shrink-0 snap-start sm:w-auto" {...reveal(reduce, i)}>
-                        <VideoCard v={v} onPlay={setPlaying} />
-                      </motion.li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
               {groups.length > 1 && (
                 <div role="group" aria-label="Filter by category" className="no-scrollbar -mx-4 mb-8 flex gap-2 overflow-x-auto px-4 sm:mx-0 sm:flex-wrap sm:px-0">
                   {[ALL, ...groups].map((g) => {
