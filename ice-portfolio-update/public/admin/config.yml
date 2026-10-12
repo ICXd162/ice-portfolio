@@ -106,9 +106,10 @@ collections:
             fields:
               - { name: title, label: ชื่องาน, widget: string }
               - { name: client, label: ลูกค้า, widget: string, required: false }
-              - { name: type, label: ประเภท (ใช้เป็นปุ่มกรอง), widget: select, default: "Banner", options: ["Banner", "Thumbnail", "Social post", "Poster & print", "Other"] }
-              - { name: image, label: ภาพผลงาน, widget: imagecrop, aspect: "4/5" }
-              - { name: frame, label: กรอบที่แสดงบนเว็บ, widget: select, default: original, options: [{ label: "ขนาดจริง (ไม่ครอป)", value: original }, { label: "สี่เหลี่ยมจัตุรัส 1:1", value: square }, { label: "แนวตั้ง 4:5", value: portrait }, { label: "แนวนอน 16:9", value: landscape }, { label: "แบนเนอร์ยาว 3:1", value: banner }], hint: "ถ้าเลือกกรอบ ระบบจะใช้ตำแหน่งครอปที่ตั้งไว้ด้านบน" }
+              - { name: type, label: ประเภท (ใช้เป็นปุ่มกรอง), widget: select, default: "Banner", options: ["Tour & Travel", "Food & Cafe", "Gaming & Esports", "Retail & Print", "Banner", "Thumbnail", "Social post", "Poster & print", "Other"] }
+              - { name: image, label: ภาพปก, widget: imagecrop, aspect: "4/5" }
+              - { name: images, label: "ภาพทั้งหมดในโปรเจกต์ (กดที่การ์ดแล้วเลื่อนดูได้ ไม่ใส่ก็ได้)", label_singular: ภาพ, widget: list, required: false, collapsed: true, field: { name: image, label: ภาพ, widget: image } }
+              - { name: frame, label: กรอบที่แสดงบนเว็บ, widget: select, default: original, options: [{ label: "ขนาดจริง (ไม่ครอป)", value: original }, { label: "สี่เหลี่ยมจัตุรัส 1:1", value: square }, { label: "แนวตั้ง 4:5", value: portrait }, { label: "แนวนอน 16:9", value: landscape }, { label: "แบนเนอร์ยาว 3:1", value: banner }, { label: "การ์ดโปรเจกต์ 4:3", value: cover }], hint: "ถ้าเลือกกรอบ ระบบจะใช้ตำแหน่งครอปที่ตั้งไว้ด้านบน" }
               - { name: link, label: ลิงก์เพิ่มเติม เช่น Behance (ไม่ใส่ก็ได้), widget: string, required: false }
 
       - name: process

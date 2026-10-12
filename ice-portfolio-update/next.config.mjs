@@ -11,6 +11,7 @@ const nextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "static.wixstatic.com" },
       { protocol: "https", hostname: "i.ytimg.com" },
+      { protocol: "https", hostname: "cdn.myportfolio.com" },
       { protocol: "https", hostname: "picsum.photos" },
     ],
   },

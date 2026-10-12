@@ -2,7 +2,7 @@
 import { useCallback, useMemo, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { EASE_OUT } from "@/lib/motion";
-import { MagnifyingGlassPlus, ArrowUpRight } from "@phosphor-icons/react";
+import { MagnifyingGlassPlus, ArrowUpRight, Images } from "@phosphor-icons/react";
 import { Media } from "./Media";
 import { SectionHead } from "./SectionHead";
 import { Lightbox } from "./Lightbox";
@@ -18,12 +18,26 @@ export function DesignGallery({ heading, intro, items }: { heading: string; intr
   const types = useMemo(() => Array.from(new Set(items.map((d) => d.type))), [items]);
   const [filter, setFilter] = useState("All");
   const [open, setOpen] = useState<number | null>(null);
+  const [page, setPage] = useState(0);
   const shown = useMemo(() => (filter === "All" ? items : items.filter((d) => d.type === filter)), [filter, items]);
 
-  const close = useCallback(() => setOpen(null), []);
-  const prev = useCallback(() => setOpen((i) => (i === null ? i : (i - 1 + shown.length) % shown.length)), [shown.length]);
-  const next = useCallback(() => setOpen((i) => (i === null ? i : (i + 1) % shown.length)), [shown.length]);
+  // A project with an "images" list opens as its own slideshow; single pieces step through the gallery.
   const current = open !== null ? shown[open] : null;
+  const pages = current ? (current.images.length ? current.images : [current.image]) : [];
+  const isProject = pages.length > 1;
+  const count = isProject ? pages.length : shown.length;
+  const index = isProject ? page : (open ?? 0);
+
+  const close = useCallback(() => setOpen(null), []);
+  const prev = useCallback(() => {
+    if (isProject) setPage((p) => (p - 1 + pages.length) % pages.length);
+    else setOpen((i) => (i === null ? i : (i - 1 + shown.length) % shown.length));
+  }, [isProject, pages.length, shown.length]);
+  const next = useCallback(() => {
+    if (isProject) setPage((p) => (p + 1) % pages.length);
+    else setOpen((i) => (i === null ? i : (i + 1) % shown.length));
+  }, [isProject, pages.length, shown.length]);
+  const openAt = (i: number) => { setPage(0); setOpen(i); };
 
   return (
     <section id="design" className="scroll-mt-20 border-t border-line py-24 md:py-32">
@@ -61,7 +75,7 @@ export function DesignGallery({ heading, intro, items }: { heading: string; intr
               className="mb-3 break-inside-avoid md:mb-4"
             >
               <button
-                onClick={() => setOpen(i)}
+                onClick={() => openAt(i)}
                 className="group relative block w-full overflow-hidden rounded-[var(--radius-media)] bg-ink-2 text-left"
                 aria-label={`View ${d.title} full size`}
               >
@@ -79,6 +93,11 @@ export function DesignGallery({ heading, intro, items }: { heading: string; intr
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={parseCrop(d.image).url} alt={d.title} loading="lazy" className="block h-auto w-full transition-transform duration-300 group-hover:scale-[1.03] motion-reduce:transition-none" />
                 )}
+                {d.images.length > 1 && (
+                  <span className="absolute top-3 right-3 inline-flex items-center gap-1 rounded-full bg-black/55 px-2.5 py-1 text-xs font-medium text-white tabular-nums backdrop-blur-sm">
+                    <Images size={13} weight="fill" /> {d.images.length}
+                  </span>
+                )}
                 <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-gradient-to-t from-black/75 to-transparent p-3 pt-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
                   <span className="min-w-0">
                     <span lang="th" className="block truncate text-sm font-medium text-white">{d.title}</span>
@@ -95,8 +114,8 @@ export function DesignGallery({ heading, intro, items }: { heading: string; intr
       <Lightbox
         open={current !== null}
         onClose={close}
-        onPrev={shown.length > 1 ? prev : undefined}
-        onNext={shown.length > 1 ? next : undefined}
+        onPrev={count > 1 ? prev : undefined}
+        onNext={count > 1 ? next : undefined}
         label={current ? current.title : "Image viewer"}
         caption={
           current && (
@@ -106,7 +125,7 @@ export function DesignGallery({ heading, intro, items }: { heading: string; intr
                 {current.type}
                 {current.client ? ` · ${current.client}` : ""}
                 <span className="ml-3 tabular-nums">
-                  {(open ?? 0) + 1} of {shown.length}
+                  {index + 1} of {count}
                 </span>
               </p>
               {current.link && (
@@ -120,7 +139,12 @@ export function DesignGallery({ heading, intro, items }: { heading: string; intr
       >
         {current && (
           // eslint-disable-next-line @next/next/no-img-element
-          <img key={current.image} src={parseCrop(current.image).url} alt={current.title} className="max-h-[80dvh] max-w-[min(92vw,1400px)] rounded-[var(--radius-media)] object-contain" />
+          <img key={pages[page] ?? current.image} src={parseCrop(isProject ? pages[page] : current.image).url} alt={current.title} className="max-h-[80dvh] max-w-[min(92vw,1400px)] rounded-[var(--radius-media)] object-contain" />
+        )}
+        {isProject && (
+          // Warm the next page so stepping through a project feels instant.
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={pages[(page + 1) % pages.length]} alt="" aria-hidden className="hidden" />
         )}
       </Lightbox>
     </section>

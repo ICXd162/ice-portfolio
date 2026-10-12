@@ -151,9 +151,10 @@ export const DESIGN_FRAMES = {
   portrait: "4 / 5",
   landscape: "16 / 9",
   banner: "3 / 1",
+  cover: "4 / 3",
 } as const;
 export type DesignFrame = keyof typeof DESIGN_FRAMES;
-export type Design = { title: string; client: string; type: string; image: string; link: string; frame: DesignFrame };
+export type Design = { title: string; client: string; type: string; image: string; images: string[]; link: string; frame: DesignFrame };
 export const designs = {
   heading: text(designsData.heading),
   intro: text(designsData.intro),
@@ -163,6 +164,7 @@ export const designs = {
       client: text(d.client),
       type: text(d.type) || "Other",
       image: text(d.image),
+      images: list<unknown>(d.images).map(text).filter(Boolean),
       link: text(d.link),
       frame: (text(d.frame) in DESIGN_FRAMES ? text(d.frame) : "original") as DesignFrame,
     }))
