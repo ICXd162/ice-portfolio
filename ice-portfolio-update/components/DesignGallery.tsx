@@ -38,6 +38,7 @@ export function DesignGallery({ heading, intro, items }: { heading: string; intr
     else setOpen((i) => (i === null ? i : (i + 1) % shown.length));
   }, [isProject, pages.length, shown.length]);
   const openAt = (i: number) => { setPage(0); setOpen(i); };
+  const uniform = shown.length > 0 && new Set(shown.map((d) => d.frame)).size === 1 && DESIGN_FRAMES[shown[0].frame] !== null;
 
   return (
     <section id="design" className="scroll-mt-20 border-t border-line py-24 md:py-32">
@@ -64,7 +65,13 @@ export function DesignGallery({ heading, intro, items }: { heading: string; intr
           )}
         </SectionHead>
 
-        <ul className="mt-12 columns-2 gap-3 md:columns-3 md:gap-4 xl:columns-4">
+        <ul
+          className={
+            // Same-shaped cards fill row by row so the first pieces (highlights) sit across the top;
+            // mixed shapes use masonry columns.
+            uniform ? "mt-12 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4" : "mt-12 columns-2 gap-3 md:columns-3 md:gap-4 xl:columns-4"
+          }
+        >
           {shown.map((d, i) => (
             <motion.li
               key={`${filter}-${d.image}-${i}`}
@@ -72,7 +79,7 @@ export function DesignGallery({ heading, intro, items }: { heading: string; intr
               whileInView={{ opacity: 1, transform: "translateY(0px)" }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.55, delay: (i % 4) * 0.05, ease: EASE_OUT }}
-              className="mb-3 break-inside-avoid md:mb-4"
+              className={uniform ? "" : "mb-3 break-inside-avoid md:mb-4"}
             >
               <button
                 onClick={() => openAt(i)}
