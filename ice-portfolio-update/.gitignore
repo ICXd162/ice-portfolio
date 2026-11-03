@@ -1,0 +1,5 @@
+# Build output and local tooling (Netlify/GitHub Actions rebuild these)
+.next/
+out/
+node_modules
+next-env.d.ts
