@@ -218,6 +218,7 @@ collections:
           - { name: line, label: LINE ID, widget: string, required: false }
           - { name: instagram, label: ลิงก์ Instagram, widget: string, required: false }
           - { name: facebook, label: ลิงก์ Facebook, widget: string, required: false }
+          - { name: fastwork, label: ลิงก์ Fastwork (ปุ่มจ้างงานผ่าน Fastwork), widget: string, required: false }
 
       - name: faq
         label: "10. คำถามที่พบบ่อย (ไม่ใส่ = ซ่อน)"

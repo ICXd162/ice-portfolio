@@ -241,4 +241,5 @@ export const contact = {
   line: text(contactData.line),
   instagram: text(contactData.instagram),
   facebook: text(contactData.facebook),
+  fastwork: text((contactData as { fastwork?: string }).fastwork),
 };

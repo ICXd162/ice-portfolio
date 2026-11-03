@@ -10,6 +10,7 @@ import {
   InstagramLogo,
   FacebookLogo,
   WarningCircle,
+  Briefcase,
 } from "@phosphor-icons/react";
 import { Reveal } from "./Reveal";
 import { contact, telHref } from "@/lib/work";
@@ -88,6 +89,7 @@ export function Contact() {
     { icon: ChatCircle, label: contact.line ? `LINE: ${contact.line}` : "", href: contact.line ? `https://line.me/ti/p/~${contact.line}` : "" },
     { icon: InstagramLogo, label: "Instagram", href: contact.instagram },
     { icon: FacebookLogo, label: "Facebook", href: contact.facebook },
+    { icon: Briefcase, label: "Fastwork", href: contact.fastwork },
   ].filter((d) => d.href && d.label);
 
   return (
@@ -114,6 +116,22 @@ export function Contact() {
                 </li>
               ))}
             </ul>
+            {contact.fastwork && (
+              <div className="mt-10 rounded-2xl border border-line bg-ink p-5">
+                <p className="text-sm text-mute">Prefer a platform with secure payment?</p>
+                <a
+                  href={contact.fastwork}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group mt-3 inline-flex h-12 items-center gap-3 rounded-full bg-paper pr-2 pl-6 text-[15px] font-medium whitespace-nowrap text-ink transition-transform duration-150 ease-[var(--ease-out)] active:scale-[0.97]"
+                >
+                  Hire me on Fastwork
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-ink text-paper transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                    <ArrowUpRight size={14} weight="bold" />
+                  </span>
+                </a>
+              </div>
+            )}
           </Reveal>
 
           <Reveal className="lg:col-span-7" delay={0.1}>

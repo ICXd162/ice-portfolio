@@ -4,6 +4,7 @@ export function Footer() {
   const social = [
     { label: "Instagram", href: contact.instagram },
     { label: "Facebook", href: contact.facebook },
+    { label: "Fastwork", href: contact.fastwork },
   ].filter((s) => s.href);
   return (
     <footer className="border-t border-line">
