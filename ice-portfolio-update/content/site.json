@@ -1,6 +1,6 @@
 {
   "heroImage": "/uploads/portrait/hero-main-v2.webp",
-  "showreelImage": "/uploads/videos/lf-finance-explainer.jpg",
+  "showreelImage": "/uploads/videos/showreel-2026.jpg",
   "thaiName": "พงศ์พิสุทธิ แก้วนิล (ไอซ์)",
   "aboutLabel": "About me",
   "clients": [
@@ -73,7 +73,7 @@
     }
   ],
   "headline": "Edits that hold attention.",
-  "showreelUrl": "/uploads/videos/lf-finance-explainer.mp4",
+  "showreelUrl": "/uploads/videos/showreel-2026.mp4",
   "heroSlides": [
     {
       "image": "/uploads/videos/mg-nihon-sankei.jpg",
