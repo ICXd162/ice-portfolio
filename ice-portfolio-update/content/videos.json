@@ -3,6 +3,16 @@
   "intro": "Short form, long form and motion graphics. Pick a type, then press play.",
   "items": [
     {
+      "title": "เกาะแกะ เขาใหญ่",
+      "client": "",
+      "type": "Short form",
+      "group": "Vlog & travel",
+      "file": "/uploads/videos/vlog-7.mp4",
+      "videoUrl": "",
+      "cover": "/uploads/videos/vlog-7.jpg",
+      "featured": true
+    },
+    {
       "title": "Brooklyn 99",
       "client": "",
       "type": "Short form",
@@ -330,16 +340,6 @@
       "file": "/uploads/videos/vlog-6.mp4",
       "videoUrl": "",
       "cover": "/uploads/videos/vlog-6.jpg",
-      "featured": false
-    },
-    {
-      "title": "เกาะแกะ เขาใหญ่",
-      "client": "",
-      "type": "Short form",
-      "group": "Vlog & travel",
-      "file": "/uploads/videos/vlog-7.mp4",
-      "videoUrl": "",
-      "cover": "/uploads/videos/vlog-7.jpg",
       "featured": false
     },
     {
